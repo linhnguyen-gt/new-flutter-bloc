@@ -11,7 +11,7 @@ class HttpClientConfig<B, P, M extends ApiMethod> {
 
   HttpClientConfig(this.config);
 
-  factory HttpClientConfig.get(P params) {
+  factory HttpClientConfig.get({P? params}) {
     return HttpClientConfig<dynamic, P, ApiMethod>(
       HttpClientBaseConfig<ApiMethod, P, dynamic>(
         method: ApiMethod.get,

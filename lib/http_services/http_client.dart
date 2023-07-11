@@ -18,7 +18,7 @@ class HttpClient {
   }
 
   void _init() {
-    instance ??= Dio(BaseOptions(baseUrl: 'baseURL'));
+    instance ??= Dio(BaseOptions(baseUrl: 'https://datausa.io/api/'));
   }
 
   Future<BaseResponse<Data>> request<Data extends Map<String, dynamic>,
@@ -27,7 +27,6 @@ class HttpClient {
     final method = apiConfig.config.method;
     final params = apiConfig.config.params;
     final body = apiConfig.config.body;
-
     try {
       final res = await instance!.request(
         endpoint,
@@ -49,6 +48,7 @@ class HttpClient {
       );
     } catch (e) {
       final error = e as DioException;
+
       return BaseResponse<Data>(
         ok: false,
         data: error.response?.data,

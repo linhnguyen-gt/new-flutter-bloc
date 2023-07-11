@@ -11,7 +11,7 @@ class HttpStatusCodes {
   static const httpStatusInternalServerError = 500;
 }
 
-BaseResponse<Data> apiProblem<Data>(BaseResponse<Data> response) {
+Future? apiProblem(BaseResponse<Map<String, dynamic>> response) {
   BuildContext context = NavigationService.navigatorKey.currentContext!;
 
   final message = response.data;
@@ -28,31 +28,20 @@ BaseResponse<Data> apiProblem<Data>(BaseResponse<Data> response) {
             content: Text(message as String),
             actions: [
               TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: () => Navigator.pop(context),
                 child: const Text('OK'),
               ),
             ],
           );
         },
       );
-      return BaseResponse<Data>(
-        ok: false,
-        data: response.data,
-      );
+      return null;
     case HttpStatusCodes.httpStatusForbidden:
     case HttpStatusCodes.httpStatusNotFound:
     case HttpStatusCodes.httpStatusInternalServerError:
-      return BaseResponse<Data>(
-        ok: false,
-        data: response.data,
-      );
+      return null;
     default:
-      return BaseResponse<Data>(
-        ok: false,
-        data: null,
-      );
+      return null;
   }
 }
 

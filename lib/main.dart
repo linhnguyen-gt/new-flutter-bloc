@@ -1,6 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_flutter_bloc/api/response_api.dart';
 import 'package:new_flutter_bloc/services/navigation_service.dart';
+
+import 'http_services/base_response.dart';
+import 'model/response_model.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -19,8 +24,27 @@ final _router = GoRouter(
   ],
 );
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getAPi();
+  }
+
+  Future<void> getAPi() async {
+    BaseResponse<List<ResponseModel>>? test = await responseApi();
+    if (kDebugMode) {
+      print(test?.data?.length);
+    }
+  }
 
   // This widget is the root of your application.
   @override
