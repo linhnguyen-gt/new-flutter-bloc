@@ -12,14 +12,14 @@ void main(List<String> arguments) {
 
 Future<bool> commitMsg() async {
   var commitMsg = Utils.getCommitEditMsg();
-  if (commitMsg.startsWith('fix:') ||
-      commitMsg.startsWith('feat:') ||
-      commitMsg.startsWith('refactor:') ||
-      commitMsg.startsWith('build:') ||
-      commitMsg.startsWith('docs:') ||
-      commitMsg.startsWith('revert:') ||
-      commitMsg.startsWith('style:') ||
-      commitMsg.startsWith('test:')) {
+  if (commitMsg.startsWith('fix: ') ||
+      commitMsg.startsWith('feat: ') ||
+      commitMsg.startsWith('refactor: ') ||
+      commitMsg.startsWith('build: ') ||
+      commitMsg.startsWith('docs: ') ||
+      commitMsg.startsWith('revert: ') ||
+      commitMsg.startsWith('style: ') ||
+      commitMsg.startsWith('test: ')) {
     return true;
   } else {
     ConsoleLogger().info('✖   subject may not be empty');
