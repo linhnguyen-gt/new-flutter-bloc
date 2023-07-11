@@ -21,7 +21,6 @@ Future? apiProblem(BaseResponse<Map<String, dynamic>> response) {
     case HttpStatusCodes.httpStatusUnauthorized:
       showDialog(
         context: context,
-        // Provide the appropriate context here
         builder: (context) {
           return AlertDialog(
             title: const Text(''),
