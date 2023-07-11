@@ -1,28 +1,23 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:git_hooks/runtime/git_hooks.dart';
+import 'package:go_router/go_router.dart';
+import 'package:new_flutter_bloc/services/navigation_service.dart';
 
 Future<void> main() async {
-  GitHooks.init(targetPath: 'bin/git_hooks.dart');
-  final preCommitHook = File('.git/hooks/pre-commit');
-  await preCommitHook.parent.create();
-  await preCommitHook.writeAsString(
-    '''
-#!/bin/sh
-exec dart run dart_pre_commit # specify custom options here
-''',
-  );
-
-  if (!Platform.isWindows) {
-    final result = await Process.run('chmod', ['a+x', preCommitHook.path]);
-    stdout.write(result.stdout);
-    stderr.write(result.stderr);
-    exitCode = result.exitCode;
-  }
-
   runApp(const MyApp());
 }
+
+final _router = GoRouter(
+  initialLocation: '/home',
+  navigatorKey: NavigationService.navigatorKey,
+  routes: [
+    GoRoute(
+      name: 'home',
+      path: '/home',
+      builder: (context, state) =>
+          const MyHomePage(title: 'Flutter Demo Home Page'),
+    ),
+  ],
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,7 +25,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -51,7 +47,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
