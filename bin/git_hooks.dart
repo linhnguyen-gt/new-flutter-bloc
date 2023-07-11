@@ -22,10 +22,10 @@ Future<bool> commitMsg() async {
       commitMsg.startsWith('test: ')) {
     return true;
   } else {
-    ConsoleLogger().info('✖   subject may not be empty');
-    ConsoleLogger().info('✖   type may not be empty');
+    ConsoleLogger().info('✖  subject may not be empty');
+    ConsoleLogger().info('✖  type may not be empty');
     ConsoleLogger().info(
-        '✖   type-enum: ["build","doc","feat","fix","refactor","revert","style","test"]');
+        '✖  type-enum: ["build","doc","feat","fix","refactor","revert","style","test"]');
     return false;
   }
 }
