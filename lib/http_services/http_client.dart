@@ -3,6 +3,10 @@ import 'package:dio/dio.dart';
 import 'base_response.dart';
 import 'http_config.dart';
 
+class DefaultApiConfig {
+  static const String baseURL = 'https://datausa.io/api/';
+}
+
 class HttpClient {
   static HttpClient? _instance;
   Dio? instance;
@@ -18,7 +22,7 @@ class HttpClient {
   }
 
   void _init() {
-    instance ??= Dio(BaseOptions(baseUrl: 'https://datausa.io/api/'));
+    instance ??= Dio(BaseOptions(baseUrl: DefaultApiConfig.baseURL));
   }
 
   Future<BaseResponse<Data>> request<Data extends Map<String, dynamic>,
