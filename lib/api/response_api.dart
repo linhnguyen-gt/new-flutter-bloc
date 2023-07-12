@@ -9,15 +9,15 @@ Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
     'drilldowns': 'Nation',
     'measures': 'Population',
   };
-  final res = await HttpClient.getInstance().request(
+  final response = await HttpClient.getInstance().request(
     'data',
     HttpClientConfig.get(params: params),
   );
 
-  if (!res.ok) return await apiProblem(res);
+  if (!response.ok) return await apiProblem(response);
 
   return BaseResponse<List<ResponseModel>>(
-    ok: res.ok,
-    data: ResponseModel.getListFormJson(res.data!),
+    ok: response.ok,
+    data: ResponseModel.getListFormJson(response.data!),
   );
 }

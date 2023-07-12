@@ -11,7 +11,8 @@ class HttpStatusCodes {
   static const httpStatusInternalServerError = 500;
 }
 
-Future? apiProblem(BaseResponse<Map<String, dynamic>> response) {
+Future<BaseResponse<Data>>? apiProblem<Data>(
+    BaseResponse<Map<String, dynamic>> response) {
   BuildContext context = NavigationService.navigatorKey.currentContext!;
 
   final message = response.data;

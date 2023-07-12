@@ -1,10 +1,14 @@
 part of 'response_bloc.dart';
 
-abstract class ResponseState extends Equatable {
-  const ResponseState();
-}
+final class ResponseState extends Equatable {
+  final List<ResponseModel> data;
+  final int count;
 
-class ResponseInitial extends ResponseState {
+  const ResponseState({required this.data, required this.count});
+
+  ResponseState copyWith({List<ResponseModel>? data, int? count}) =>
+      ResponseState(data: data ?? this.data, count: count ?? this.count);
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [data, count];
 }

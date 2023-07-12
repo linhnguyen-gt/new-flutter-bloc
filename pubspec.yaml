@@ -67,6 +67,8 @@ dart_pre_commit:
       - a
       - b
 
+executables:
+  git: git_hooks
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
