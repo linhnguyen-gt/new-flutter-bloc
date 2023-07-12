@@ -1,4 +1,4 @@
-class BaseResponse<T extends dynamic> {
+class BaseResponse<T> {
   final bool ok;
   final T? data;
   final int? status;

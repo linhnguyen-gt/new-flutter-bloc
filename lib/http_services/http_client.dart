@@ -60,6 +60,57 @@ class HttpClient {
       );
     }
   }
+
+// void setInterceptorRequest() {
+//   instance!.interceptors.add(
+//     InterceptorsWrapper(
+//       onRequest: (options, handler) async {
+//         token = 'token';
+//
+//         if (token != null) {
+//           options.headers['Authorization'] = 'Bearer $token';
+//         }
+//
+//         handler.next(options);
+//       },
+//     ),
+//   );
+// }
+//
+// void setInterceptorResponse() {
+//   instance!.interceptors.add(
+//     InterceptorsWrapper(
+//       onResponse: (response, handler) {
+//         handler.next(response);
+//       },
+//       onError: (error, handler) async {
+//         final errorResponse = error.response;
+//         if (errorResponse != null) {
+//           print('error config:: ${errorResponse.data}');
+//           // Access Token was expired
+//           if (errorResponse.statusCode == 401) {
+//             if (errorResponse.data['message'] == 'Unauthorized') {
+//               try {
+//                 await refreshToken();
+//               } catch (refreshError) {
+//                 refreshError as DioException;
+//                 return Future.error(
+//                     refreshError.response?.data ?? refreshError);
+//               }
+//             } else {
+//               return Future.error(errorResponse.data ?? error);
+//             }
+//           }
+//         }
+//         return handler.next(error);
+//       },
+//     ),
+//   );
+// }
+//
+// Future? refreshToken() {
+//   return null;
+// }
 }
 
 extension ApiMethodExtension on ApiMethod {
