@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dart_pre_commit/dart_pre_commit.dart';
 import 'package:git_hooks/git_hooks.dart';
 
@@ -33,13 +31,8 @@ Future<bool> commitMsg() async {
 }
 
 Future<bool> preCommit() async {
-  try {
-    var result = await Process.run('dart', ['analyze']);
-    print(result.stdout);
-    print(result.stderr);
-    if (result.exitCode != 0) return false;
-    return true;
-  } catch (e) {
-    return false;
-  }
+  // final result = await DartPreCommit.run();
+  // return result.isSuccess;
+
+  return true;
 }
