@@ -8,13 +8,15 @@ part 'response_event.dart';
 part 'response_state.dart';
 
 class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
-  ResponseBloc() : super(ResponseInitial()) {
-    on<ResponseEvent>((event, emit) async {
+  ResponseBloc() : super(const ResponseState(data: [], count: 0)) {
+    on<CallResponse>((event, emit) async {
       // TODO: implement event handler
-
-      BaseResponse<List<ResponseModel>>? ress = await responseApi();
-
-      ress?.data;
+      BaseResponse<List<ResponseModel>>? response = await responseApi();
+      if (response!.ok) {
+        emit(state.copyWith(data: response.data!));
+      }
     });
+
+    on<Count>((event, emit) => emit(state.copyWith(count: state.count + 1)));
   }
 }

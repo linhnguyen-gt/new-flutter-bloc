@@ -1,13 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_flutter_bloc/api/response_api.dart';
 import 'package:new_flutter_bloc/services/navigation_service.dart';
 import 'package:new_flutter_bloc/view/page_one/page_one.dart';
 import 'package:new_flutter_bloc/view/page_two/page_two.dart';
-
-import 'http_services/base_response.dart';
-import 'model/response_model.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -40,20 +35,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getAPi();
-  }
-
-  Future<void> getAPi() async {
-    BaseResponse<List<ResponseModel>>? test = await responseApi();
-    if (kDebugMode) {
-      print('request api: ${test?.data?.length}');
-    }
-  }
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
