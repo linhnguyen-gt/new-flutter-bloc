@@ -5,7 +5,7 @@ import 'package:new_flutter_bloc/http_services/http_config.dart';
 import 'package:new_flutter_bloc/model/response_model.dart';
 
 Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
-  Map<String, dynamic> params = {
+  var params = <String, dynamic>{
     'drilldowns': 'Nation',
     'measures': 'Population',
   };

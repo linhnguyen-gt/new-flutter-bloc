@@ -1,7 +1,7 @@
 class BaseResponse<T> {
   final bool ok;
   final T? data;
-  final int? status;
+  final int? statusCode;
 
-  BaseResponse({required this.ok, required this.data, this.status});
+  BaseResponse({required this.ok, required this.data, this.statusCode});
 }

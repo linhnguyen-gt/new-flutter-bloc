@@ -27,7 +27,7 @@ class ResponseModel {
   static List<ResponseModel> getListFormJson(Map<String, dynamic> json) {
     var listData = json['data'];
 
-    List<ResponseModel> responseList = [];
+    var responseList = <ResponseModel>[];
     for (var item in listData) {
       responseList.add(ResponseModel.fromJson(item));
     }

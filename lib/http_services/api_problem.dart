@@ -13,11 +13,11 @@ class HttpStatusCodes {
 
 Future<BaseResponse<Data>>? apiProblem<Data>(
     BaseResponse<Map<String, dynamic>> response) {
-  BuildContext context = NavigationService.navigatorKey.currentContext!;
+  var context = NavigationService.navigatorKey.currentContext!;
 
   final message = response.data;
 
-  switch (response.status) {
+  switch (response.statusCode) {
     case HttpStatusCodes.httpStatusBadRequest:
     case HttpStatusCodes.httpStatusUnauthorized:
       showDialog(

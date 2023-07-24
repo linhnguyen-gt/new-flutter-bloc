@@ -35,7 +35,7 @@ class HttpClient {
       final res = await instance!.request(
         endpoint,
         queryParameters: (method == ApiMethod.get || method == ApiMethod.delete)
-            ? (params as Map<String, dynamic>)
+            ? (params! as Map<String, dynamic>)
             : null,
         data: (method != ApiMethod.get && method != ApiMethod.delete)
             ? body
@@ -43,12 +43,12 @@ class HttpClient {
         options: Options(
           method: method.lowercaseValue,
         ),
-      );
+      ) as BaseResponse<Data>;
 
       return BaseResponse<Data>(
         ok: true,
         data: res.data,
-        status: res.statusCode,
+        statusCode: res.statusCode,
       );
     } catch (e) {
       final error = e as DioException;
@@ -56,7 +56,7 @@ class HttpClient {
       return BaseResponse<Data>(
         ok: false,
         data: error.response?.data,
-        status: error.response?.statusCode,
+        statusCode: error.response?.statusCode,
       );
     }
   }

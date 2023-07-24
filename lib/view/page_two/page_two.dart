@@ -25,7 +25,7 @@ class _PageTwoState extends State<PageTwo> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Page two"),
+        title: const Text('Page two'),
       ),
       body: Center(
         child: Column(
