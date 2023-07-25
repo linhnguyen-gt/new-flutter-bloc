@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'services/navigation_service.dart';
+import 'store/config_store.dart';
 import 'view/page_one/page_one.dart';
 import 'view/page_two/page_two.dart';
 
 Future<void> main() async {
+  configureInjection();
   runApp(const MyApp());
 }
 
