@@ -43,7 +43,7 @@ class HttpClient {
         options: Options(
           method: method.lowercaseValue,
         ),
-      ) as BaseResponse<Data>;
+      );
 
       return BaseResponse<Data>(
         ok: true,

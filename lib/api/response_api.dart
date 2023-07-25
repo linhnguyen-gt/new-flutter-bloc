@@ -14,7 +14,9 @@ Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
     HttpClientConfig.get(params: params),
   );
 
-  if (!response.ok) return await apiProblem(response);
+  if (!response.ok) {
+    return await apiProblem(response);
+  }
 
   return BaseResponse<List<ResponseModel>>(
     ok: response.ok,
