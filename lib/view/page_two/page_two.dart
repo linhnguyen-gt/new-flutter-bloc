@@ -5,7 +5,7 @@ class PageTwo extends StatefulWidget {
 
   final String title;
 
-  const PageTwo({super.key, required this.title});
+  const PageTwo({required this.title, super.key});
 
   @override
   State<PageTwo> createState() => _PageTwoState();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_flutter_bloc/services/navigation_service.dart';
-import 'package:new_flutter_bloc/view/page_one/page_one.dart';
-import 'package:new_flutter_bloc/view/page_two/page_two.dart';
+
+import 'services/navigation_service.dart';
+import 'view/page_one/page_one.dart';
+import 'view/page_two/page_two.dart';
 
 Future<void> main() async {
   runApp(const MyApp());

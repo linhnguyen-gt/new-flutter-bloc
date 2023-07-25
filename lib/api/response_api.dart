@@ -1,11 +1,11 @@
-import 'package:new_flutter_bloc/http_services/api_problem.dart';
-import 'package:new_flutter_bloc/http_services/base_response.dart';
-import 'package:new_flutter_bloc/http_services/http_client.dart';
-import 'package:new_flutter_bloc/http_services/http_config.dart';
-import 'package:new_flutter_bloc/model/response_model.dart';
+import '../http_services/api_problem.dart';
+import '../http_services/base_response.dart';
+import '../http_services/http_client.dart';
+import '../http_services/http_config.dart';
+import '../model/response_model.dart';
 
 Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
-  var params = <String, dynamic>{
+  final params = <String, dynamic>{
     'drilldowns': 'Nation',
     'measures': 'Population',
   };

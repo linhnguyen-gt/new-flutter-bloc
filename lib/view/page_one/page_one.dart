@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_flutter_bloc/bloc/response_bloc.dart';
-import 'package:new_flutter_bloc/view/page_two/page_two.dart';
+
+import '../../bloc/response_bloc.dart';
+import '../page_two/page_two.dart';
 
 class PageOne extends StatefulWidget {
   static const String route = 'PageOne';
 
   final String title;
 
-  const PageOne({super.key, required this.title});
+  const PageOne({required this.title, super.key});
 
   @override
   State<PageOne> createState() => _PageOneState();
@@ -22,7 +23,7 @@ class _PageOneState extends State<PageOne> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    responseBloc.add(CallResponse());
+    responseBloc.add(const CallResponse());
   }
 
   @override
@@ -60,7 +61,7 @@ class _PageOneState extends State<PageOne> {
         floatingActionButton: BlocBuilder<ResponseBloc, ResponseState>(
           builder: (context, state) {
             return FloatingActionButton(
-              onPressed: () => responseBloc.add(Count()),
+              onPressed: () => responseBloc.add(const Count()),
               tooltip: 'Increment',
               child: const Icon(Icons.add),
             );

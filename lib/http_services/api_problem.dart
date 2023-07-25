@@ -13,7 +13,7 @@ class HttpStatusCodes {
 
 Future<BaseResponse<Data>>? apiProblem<Data>(
     BaseResponse<Map<String, dynamic>> response) {
-  var context = NavigationService.navigatorKey.currentContext!;
+  final context = NavigationService.navigatorKey.currentContext!;
 
   final message = response.data;
 
