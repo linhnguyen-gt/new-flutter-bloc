@@ -1,19 +1,17 @@
-class ResponseModel {
-  final String idNation;
-  final String nation;
-  final int idYear;
-  final String year;
-  final int population;
-  final String slugNation;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  ResponseModel({
-    required this.idNation,
-    required this.nation,
-    required this.idYear,
-    required this.year,
-    required this.population,
-    required this.slugNation,
-  });
+part 'response_model.freezed.dart';
+
+@freezed
+class ResponseModel with _$ResponseModel {
+  factory ResponseModel({
+    required String idNation,
+    required String nation,
+    required int idYear,
+    required String year,
+    required int population,
+    required String slugNation,
+  }) = _ResponseModel;
 
   static ResponseModel fromJson(Map<String, dynamic> json) => ResponseModel(
         idNation: json["ID Nation"],
@@ -25,9 +23,8 @@ class ResponseModel {
       );
 
   static List<ResponseModel> getListFormJson(Map<String, dynamic> json) {
-    var listData = json['data'];
-
-    var responseList = <ResponseModel>[];
+    final listData = json['data'];
+    final responseList = <ResponseModel>[];
     for (var item in listData) {
       responseList.add(ResponseModel.fromJson(item));
     }
