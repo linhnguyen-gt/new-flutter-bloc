@@ -11,6 +11,7 @@ A new Flutter project.
 - Navigation: [go_router](https://pub.dev/packages/go_router)
 - Singleton services: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
 - REST API: [dio](https://pub.dev/packages/dio)
+- Data class: [freezed](https://pub.dev/packages/freezed)
 
 This project is a starting point for a Flutter application.
 
