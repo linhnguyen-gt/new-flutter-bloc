@@ -15,7 +15,7 @@ class AppNavigator {
   Future<T?> pushNamed<T extends Object?>(
     String name, {
     Map<String, String> pathParameters = const <String, String>{},
-    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    Map<String, String> queryParameters = const <String, String>{},
     Object? extra,
   }) =>
       GoRouter.of(navigatorKey.currentContext!).pushNamed<T>(

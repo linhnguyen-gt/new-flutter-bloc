@@ -2,7 +2,7 @@ import '../http_services/api_problem.dart';
 import '../http_services/base_response.dart';
 import '../http_services/http_client.dart';
 import '../http_services/http_config.dart';
-import '../model/response_model.dart';
+import '../model/response/response_model.dart';
 
 Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
   final params = <String, dynamic>{
