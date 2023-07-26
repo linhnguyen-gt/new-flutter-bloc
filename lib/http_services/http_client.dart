@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'base_response.dart';
+import '../base/base_response.dart';
 import 'http_config.dart';
 
 class DefaultApiConfig {

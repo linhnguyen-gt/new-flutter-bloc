@@ -4,7 +4,7 @@ part 'response_model.freezed.dart';
 
 @freezed
 class ResponseModel with _$ResponseModel {
-  factory ResponseModel({
+  const factory ResponseModel({
     required String idNation,
     required String nation,
     required int idYear,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../base/base_response.dart';
 import '../services/navigation_service.dart';
-import 'base_response.dart';
 
 class HttpStatusCodes {
   static const httpStatusBadRequest = 400;

@@ -4,7 +4,7 @@ part 'count_model.freezed.dart';
 
 @freezed
 class CountModel with _$CountModel {
-  factory CountModel({
+  const factory CountModel({
     required int count,
   }) = _CountModel;
 }

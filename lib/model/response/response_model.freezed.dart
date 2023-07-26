@@ -159,7 +159,7 @@ class __$$_ResponseModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ResponseModel implements _ResponseModel {
-  _$_ResponseModel(
+  const _$_ResponseModel(
       {required this.idNation,
       required this.nation,
       required this.idYear,
@@ -213,7 +213,7 @@ class _$_ResponseModel implements _ResponseModel {
 }
 
 abstract class _ResponseModel implements ResponseModel {
-  factory _ResponseModel(
+  const factory _ResponseModel(
       {required final String idNation,
       required final String nation,
       required final int idYear,

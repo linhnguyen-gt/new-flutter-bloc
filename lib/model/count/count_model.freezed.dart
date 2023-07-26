@@ -92,7 +92,7 @@ class __$$_CountModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CountModel implements _CountModel {
-  _$_CountModel({required this.count});
+  const _$_CountModel({required this.count});
 
   @override
   final int count;
@@ -121,7 +121,7 @@ class _$_CountModel implements _CountModel {
 }
 
 abstract class _CountModel implements CountModel {
-  factory _CountModel({required final int count}) = _$_CountModel;
+  const factory _CountModel({required final int count}) = _$_CountModel;
 
   @override
   int get count;

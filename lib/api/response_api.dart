@@ -1,5 +1,5 @@
+import '../base/base_response.dart';
 import '../http_services/api_problem.dart';
-import '../http_services/base_response.dart';
 import '../http_services/http_client.dart';
 import '../http_services/http_config.dart';
 import '../model/response/response_model.dart';
