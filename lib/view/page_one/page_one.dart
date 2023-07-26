@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../base/base_page_state.dart';
 import '../../bloc/response_bloc.dart';
-import '../page_two/page_two.dart';
 
 class PageOne extends StatefulWidget {
   static const String route = 'PageOne';
@@ -33,7 +31,7 @@ class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
         title: Text(widget.title),
         actions: [
           GestureDetector(
-            onTap: () => context.pushNamed(PageTwo.route),
+            onTap: () => bloc.add(const ClickScreen()),
             child: const Icon(Icons.arrow_forward_rounded),
           )
         ],

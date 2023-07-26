@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'services/navigation_service.dart';
+import 'navigation/app_navigator.dart';
 import 'store/config_store.dart';
 import 'view/page_one/page_one.dart';
 import 'view/page_two/page_two.dart';
@@ -13,7 +13,7 @@ Future<void> main() async {
 
 final _router = GoRouter(
   initialLocation: '/${PageOne.route}',
-  navigatorKey: NavigationService.navigatorKey,
+  navigatorKey: AppNavigator.navigatorKey,
   routes: [
     GoRoute(
       name: PageOne.route,

@@ -133,6 +133,67 @@ abstract class _Count implements Count {
 }
 
 /// @nodoc
+mixin _$ClickScreen {}
+
+/// @nodoc
+abstract class $ClickScreenCopyWith<$Res> {
+  factory $ClickScreenCopyWith(
+          ClickScreen value, $Res Function(ClickScreen) then) =
+      _$ClickScreenCopyWithImpl<$Res, ClickScreen>;
+}
+
+/// @nodoc
+class _$ClickScreenCopyWithImpl<$Res, $Val extends ClickScreen>
+    implements $ClickScreenCopyWith<$Res> {
+  _$ClickScreenCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_ClickScreenCopyWith<$Res> {
+  factory _$$_ClickScreenCopyWith(
+          _$_ClickScreen value, $Res Function(_$_ClickScreen) then) =
+      __$$_ClickScreenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ClickScreenCopyWithImpl<$Res>
+    extends _$ClickScreenCopyWithImpl<$Res, _$_ClickScreen>
+    implements _$$_ClickScreenCopyWith<$Res> {
+  __$$_ClickScreenCopyWithImpl(
+      _$_ClickScreen _value, $Res Function(_$_ClickScreen) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ClickScreen implements _ClickScreen {
+  const _$_ClickScreen();
+
+  @override
+  String toString() {
+    return 'ClickScreen()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ClickScreen);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class _ClickScreen implements ClickScreen {
+  const factory _ClickScreen() = _$_ClickScreen;
+}
+
+/// @nodoc
 mixin _$ResponseState {
   List<ResponseModel> get data => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
