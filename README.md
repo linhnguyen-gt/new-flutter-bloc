@@ -1,10 +1,16 @@
 # new_flutter_bloc
 
+- Flutter ver: [3.10.6](https://github.com/flutter/flutter/releases/tag/3.10.6)
+
 A new Flutter project.
 
 ## Getting Started
 
-- rebuild : flutter pub run build_runner build
+- Rebuild: flutter pub run build_runner build
+- State management: [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- Navigation: [go_router](https://pub.dev/packages/go_router)
+- Singleton services: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
+- REST API: [dio](https://pub.dev/packages/dio)
 
 This project is a starting point for a Flutter application.
 
