@@ -1,6 +1,6 @@
 # new_flutter_bloc
 
-- Flutter ver: [3.10.6](https://github.com/flutter/flutter/releases/tag/3.10.6)
+- Flutter ver: [3.13.2](https://github.com/flutter/flutter/releases/tag/3.10.6)
 
 A new Flutter project.
 
