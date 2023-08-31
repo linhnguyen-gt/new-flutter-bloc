@@ -10,11 +10,6 @@ class CallResponse extends ResponseEvent with _$CallResponse {
 }
 
 @freezed
-class Count extends ResponseEvent with _$Count {
-  const factory Count() = _Count;
-}
-
-@freezed
 class ClickScreen extends ResponseEvent with _$ClickScreen {
   const factory ClickScreen() = _ClickScreen;
 }

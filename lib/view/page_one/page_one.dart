@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../base/base_page_state.dart';
-import '../../bloc/response_bloc.dart';
+import '../../bloc/response/response_bloc.dart';
 
 class PageOne extends StatefulWidget {
   static const String route = 'PageOne';
@@ -40,24 +40,18 @@ class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
         builder: (context, state) {
           return Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'You have pushed the button this many times: ${state.count}',
-                ),
                 Text(
                   'Response from Api list: ${state.data.length}',
                 ),
+                // ListView.builder(
+                //     itemCount: state.data.length, itemBuilder: itemBuilder)
               ],
             ),
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => bloc.add(const Count()),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

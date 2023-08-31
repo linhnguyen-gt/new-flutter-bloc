@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../base/base_page_state.dart';
+import '../../bloc/count/count_bloc.dart';
 import '../../model/count/count_model.dart';
 
 class PageTwo extends StatefulWidget {
@@ -14,41 +17,37 @@ class PageTwo extends StatefulWidget {
   State<PageTwo> createState() => _PageTwoState();
 }
 
-class _PageTwoState extends State<PageTwo> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _PageTwoState extends BasePageState<PageTwo, CountBloc> {
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Count page one params: ${widget.countPageOne.count}',
+      body: BlocBuilder<CountBloc, CountState>(
+        builder: (context, state) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Count page one params: ${widget.countPageOne.count}',
+                ),
+                const Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '${state.count}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
             ),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => bloc.add(const Count()),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

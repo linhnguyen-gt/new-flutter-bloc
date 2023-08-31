@@ -76,63 +76,6 @@ abstract class _CallResponse implements CallResponse {
 }
 
 /// @nodoc
-mixin _$Count {}
-
-/// @nodoc
-abstract class $CountCopyWith<$Res> {
-  factory $CountCopyWith(Count value, $Res Function(Count) then) =
-      _$CountCopyWithImpl<$Res, Count>;
-}
-
-/// @nodoc
-class _$CountCopyWithImpl<$Res, $Val extends Count>
-    implements $CountCopyWith<$Res> {
-  _$CountCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_CountCopyWith<$Res> {
-  factory _$$_CountCopyWith(_$_Count value, $Res Function(_$_Count) then) =
-      __$$_CountCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res, _$_Count>
-    implements _$$_CountCopyWith<$Res> {
-  __$$_CountCopyWithImpl(_$_Count _value, $Res Function(_$_Count) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Count implements _Count {
-  const _$_Count();
-
-  @override
-  String toString() {
-    return 'Count()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Count);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class _Count implements Count {
-  const factory _Count() = _$_Count;
-}
-
-/// @nodoc
 mixin _$ClickScreen {}
 
 /// @nodoc
@@ -196,7 +139,6 @@ abstract class _ClickScreen implements ClickScreen {
 /// @nodoc
 mixin _$ResponseState {
   List<ResponseModel> get data => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -209,7 +151,7 @@ abstract class $ResponseStateCopyWith<$Res> {
           ResponseState value, $Res Function(ResponseState) then) =
       _$ResponseStateCopyWithImpl<$Res, ResponseState>;
   @useResult
-  $Res call({List<ResponseModel> data, int count});
+  $Res call({List<ResponseModel> data});
 }
 
 /// @nodoc
@@ -226,17 +168,12 @@ class _$ResponseStateCopyWithImpl<$Res, $Val extends ResponseState>
   @override
   $Res call({
     Object? data = null,
-    Object? count = null,
   }) {
     return _then(_value.copyWith(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -249,7 +186,7 @@ abstract class _$$_ResponseStateCopyWith<$Res>
       __$$_ResponseStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ResponseModel> data, int count});
+  $Res call({List<ResponseModel> data});
 }
 
 /// @nodoc
@@ -264,17 +201,12 @@ class __$$_ResponseStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
-    Object? count = null,
   }) {
     return _then(_$_ResponseState(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -282,8 +214,7 @@ class __$$_ResponseStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ResponseState implements _ResponseState {
-  const _$_ResponseState(
-      {final List<ResponseModel> data = const [], this.count = 0})
+  const _$_ResponseState({final List<ResponseModel> data = const []})
       : _data = data;
 
   final List<ResponseModel> _data;
@@ -296,12 +227,8 @@ class _$_ResponseState implements _ResponseState {
   }
 
   @override
-  @JsonKey()
-  final int count;
-
-  @override
   String toString() {
-    return 'ResponseState(data: $data, count: $count)';
+    return 'ResponseState(data: $data)';
   }
 
   @override
@@ -309,13 +236,12 @@ class _$_ResponseState implements _ResponseState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResponseState &&
-            const DeepCollectionEquality().equals(other._data, _data) &&
-            (identical(other.count, count) || other.count == count));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_data), count);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -325,13 +251,11 @@ class _$_ResponseState implements _ResponseState {
 }
 
 abstract class _ResponseState implements ResponseState {
-  const factory _ResponseState(
-      {final List<ResponseModel> data, final int count}) = _$_ResponseState;
+  const factory _ResponseState({final List<ResponseModel> data}) =
+      _$_ResponseState;
 
   @override
   List<ResponseModel> get data;
-  @override
-  int get count;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>
