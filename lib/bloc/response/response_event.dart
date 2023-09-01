@@ -13,3 +13,8 @@ class CallResponse extends ResponseEvent with _$CallResponse {
 class ClickScreen extends ResponseEvent with _$ClickScreen {
   const factory ClickScreen() = _ClickScreen;
 }
+
+@freezed
+class SetLoading extends ResponseEvent with _$SetLoading {
+  const factory SetLoading() = _SetLoading;
+}

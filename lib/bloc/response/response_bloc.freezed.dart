@@ -137,8 +137,70 @@ abstract class _ClickScreen implements ClickScreen {
 }
 
 /// @nodoc
+mixin _$SetLoading {}
+
+/// @nodoc
+abstract class $SetLoadingCopyWith<$Res> {
+  factory $SetLoadingCopyWith(
+          SetLoading value, $Res Function(SetLoading) then) =
+      _$SetLoadingCopyWithImpl<$Res, SetLoading>;
+}
+
+/// @nodoc
+class _$SetLoadingCopyWithImpl<$Res, $Val extends SetLoading>
+    implements $SetLoadingCopyWith<$Res> {
+  _$SetLoadingCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_SetLoadingCopyWith<$Res> {
+  factory _$$_SetLoadingCopyWith(
+          _$_SetLoading value, $Res Function(_$_SetLoading) then) =
+      __$$_SetLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SetLoadingCopyWithImpl<$Res>
+    extends _$SetLoadingCopyWithImpl<$Res, _$_SetLoading>
+    implements _$$_SetLoadingCopyWith<$Res> {
+  __$$_SetLoadingCopyWithImpl(
+      _$_SetLoading _value, $Res Function(_$_SetLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SetLoading implements _SetLoading {
+  const _$_SetLoading();
+
+  @override
+  String toString() {
+    return 'SetLoading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SetLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class _SetLoading implements SetLoading {
+  const factory _SetLoading() = _$_SetLoading;
+}
+
+/// @nodoc
 mixin _$ResponseState {
   List<ResponseModel> get data => throw _privateConstructorUsedError;
+  bool get loading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -151,7 +213,7 @@ abstract class $ResponseStateCopyWith<$Res> {
           ResponseState value, $Res Function(ResponseState) then) =
       _$ResponseStateCopyWithImpl<$Res, ResponseState>;
   @useResult
-  $Res call({List<ResponseModel> data});
+  $Res call({List<ResponseModel> data, bool loading});
 }
 
 /// @nodoc
@@ -168,12 +230,17 @@ class _$ResponseStateCopyWithImpl<$Res, $Val extends ResponseState>
   @override
   $Res call({
     Object? data = null,
+    Object? loading = null,
   }) {
     return _then(_value.copyWith(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -186,7 +253,7 @@ abstract class _$$_ResponseStateCopyWith<$Res>
       __$$_ResponseStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ResponseModel> data});
+  $Res call({List<ResponseModel> data, bool loading});
 }
 
 /// @nodoc
@@ -201,12 +268,17 @@ class __$$_ResponseStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? loading = null,
   }) {
     return _then(_$_ResponseState(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -214,7 +286,8 @@ class __$$_ResponseStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ResponseState implements _ResponseState {
-  const _$_ResponseState({final List<ResponseModel> data = const []})
+  const _$_ResponseState(
+      {final List<ResponseModel> data = const [], this.loading = false})
       : _data = data;
 
   final List<ResponseModel> _data;
@@ -227,8 +300,12 @@ class _$_ResponseState implements _ResponseState {
   }
 
   @override
+  @JsonKey()
+  final bool loading;
+
+  @override
   String toString() {
-    return 'ResponseState(data: $data)';
+    return 'ResponseState(data: $data, loading: $loading)';
   }
 
   @override
@@ -236,12 +313,13 @@ class _$_ResponseState implements _ResponseState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResponseState &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.loading, loading) || other.loading == loading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_data), loading);
 
   @JsonKey(ignore: true)
   @override
@@ -251,11 +329,13 @@ class _$_ResponseState implements _ResponseState {
 }
 
 abstract class _ResponseState implements ResponseState {
-  const factory _ResponseState({final List<ResponseModel> data}) =
-      _$_ResponseState;
+  const factory _ResponseState(
+      {final List<ResponseModel> data, final bool loading}) = _$_ResponseState;
 
   @override
   List<ResponseModel> get data;
+  @override
+  bool get loading;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>

@@ -3,12 +3,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class MyList<T> extends StatelessWidget {
   const MyList(
-      {required this.itemBuilder,
-      required this.data,
-      required this.pagingController,
-      super.key});
-
-  final List<T> data;
+      {required this.itemBuilder, required this.pagingController, super.key});
 
   final PagingController<dynamic, T> pagingController;
 

@@ -24,10 +24,12 @@ class ResponseBloc extends BaseBloc<ResponseEvent, ResponseState> {
 
   Future<void> _onCallResponse(
       CallResponse event, Emitter<ResponseState> emit) async {
-    final response = await responseApi();
-    if (response!.ok) {
-      emit(state.copyWith(data: response.data!));
-    }
+    await blocCatch(actions: () async {
+      final response = await responseApi();
+      if (response!.ok) {
+        emit(state.copyWith(data: response.data!));
+      }
+    });
   }
 
   void _onClickScreen(ClickScreen event, Emitter<ResponseState> emit) {
