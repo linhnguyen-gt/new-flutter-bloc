@@ -9,14 +9,14 @@ class AppNavigator {
 
   const AppNavigator();
 
-  Future<T?> push<T extends Object?>(String location, {Object? extra}) =>
+  Future<T?> push<T extends Object?>(String location, {T? extra}) =>
       GoRouter.of(navigatorKey.currentContext!).push<T>(location, extra: extra);
 
   Future<T?> pushNamed<T extends Object?>(
     String name, {
     Map<String, String> pathParameters = const <String, String>{},
     Map<String, String> queryParameters = const <String, String>{},
-    Object? extra,
+    T? extra,
   }) =>
       GoRouter.of(navigatorKey.currentContext!).pushNamed<T>(
         name,
