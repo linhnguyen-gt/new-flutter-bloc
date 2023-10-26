@@ -2,14 +2,6 @@ import 'package:http_status_code/http_status_code.dart';
 
 import '../base/base_response.dart';
 
-class HttpStatusCodes {
-  static const httpStatusBadRequest = 400;
-  static const httpStatusUnauthorized = 401;
-  static const httpStatusForbidden = 403;
-  static const httpStatusNotFound = 404;
-  static const httpStatusInternalServerError = 500;
-}
-
 Future<BaseResponse<Data>>? apiProblem<Data>(
     BaseResponse<Map<String, dynamic>> response) {
   switch (response.statusCode) {
