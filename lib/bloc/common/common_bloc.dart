@@ -4,9 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../base/base_bloc.dart';
-import '../../base/base_bloc_event.dart';
-import '../../base/base_bloc_state.dart';
+import '../../base/bloc/base_bloc.dart';
+import '../../base/bloc/base_bloc_event.dart';
+import '../../base/bloc/base_bloc_state.dart';
 
 part 'common_bloc.freezed.dart';
 part 'common_event.dart';

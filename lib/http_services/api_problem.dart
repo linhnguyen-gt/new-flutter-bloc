@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:http_status_code/http_status_code.dart';
 
 import '../base/base_response.dart';
-import '../services/navigation_service.dart';
 
 class HttpStatusCodes {
   static const httpStatusBadRequest = 400;
@@ -13,32 +12,16 @@ class HttpStatusCodes {
 
 Future<BaseResponse<Data>>? apiProblem<Data>(
     BaseResponse<Map<String, dynamic>> response) {
-  final context = NavigationService.navigatorKey.currentContext!;
-
-  final message = response.data;
-
   switch (response.statusCode) {
-    case HttpStatusCodes.httpStatusBadRequest:
-    case HttpStatusCodes.httpStatusUnauthorized:
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text(''),
-            content: Text(message as String),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
+    case StatusCode.BAD_REQUEST:
       return null;
-    case HttpStatusCodes.httpStatusForbidden:
-    case HttpStatusCodes.httpStatusNotFound:
-    case HttpStatusCodes.httpStatusInternalServerError:
+    case StatusCode.UNAUTHORIZED:
+      return null;
+    case StatusCode.FORBIDDEN:
+      return null;
+    case StatusCode.NOT_FOUND:
+      return null;
+    case StatusCode.INTERNAL_SERVER_ERROR:
       return null;
     default:
       return null;

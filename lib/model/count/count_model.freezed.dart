@@ -57,22 +57,22 @@ class _$CountModelCopyWithImpl<$Res, $Val extends CountModel>
 }
 
 /// @nodoc
-abstract class _$$_CountModelCopyWith<$Res>
+abstract class _$$CountModelImplCopyWith<$Res>
     implements $CountModelCopyWith<$Res> {
-  factory _$$_CountModelCopyWith(
-          _$_CountModel value, $Res Function(_$_CountModel) then) =
-      __$$_CountModelCopyWithImpl<$Res>;
+  factory _$$CountModelImplCopyWith(
+          _$CountModelImpl value, $Res Function(_$CountModelImpl) then) =
+      __$$CountModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$_CountModelCopyWithImpl<$Res>
-    extends _$CountModelCopyWithImpl<$Res, _$_CountModel>
-    implements _$$_CountModelCopyWith<$Res> {
-  __$$_CountModelCopyWithImpl(
-      _$_CountModel _value, $Res Function(_$_CountModel) _then)
+class __$$CountModelImplCopyWithImpl<$Res>
+    extends _$CountModelCopyWithImpl<$Res, _$CountModelImpl>
+    implements _$$CountModelImplCopyWith<$Res> {
+  __$$CountModelImplCopyWithImpl(
+      _$CountModelImpl _value, $Res Function(_$CountModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_CountModelCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$_CountModel(
+    return _then(_$CountModelImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_CountModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CountModel implements _CountModel {
-  const _$_CountModel({required this.count});
+class _$CountModelImpl implements _CountModel {
+  const _$CountModelImpl({required this.count});
 
   @override
   final int count;
@@ -106,7 +106,7 @@ class _$_CountModel implements _CountModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CountModel &&
+            other is _$CountModelImpl &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -116,17 +116,17 @@ class _$_CountModel implements _CountModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CountModelCopyWith<_$_CountModel> get copyWith =>
-      __$$_CountModelCopyWithImpl<_$_CountModel>(this, _$identity);
+  _$$CountModelImplCopyWith<_$CountModelImpl> get copyWith =>
+      __$$CountModelImplCopyWithImpl<_$CountModelImpl>(this, _$identity);
 }
 
 abstract class _CountModel implements CountModel {
-  const factory _CountModel({required final int count}) = _$_CountModel;
+  const factory _CountModel({required final int count}) = _$CountModelImpl;
 
   @override
   int get count;
   @override
   @JsonKey(ignore: true)
-  _$$_CountModelCopyWith<_$_CountModel> get copyWith =>
+  _$$CountModelImplCopyWith<_$CountModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

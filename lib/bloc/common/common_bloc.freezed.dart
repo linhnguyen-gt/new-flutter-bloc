@@ -57,22 +57,22 @@ class _$SetLoadingCopyWithImpl<$Res, $Val extends SetLoading>
 }
 
 /// @nodoc
-abstract class _$$_SetLoadingCopyWith<$Res>
+abstract class _$$SetLoadingImplCopyWith<$Res>
     implements $SetLoadingCopyWith<$Res> {
-  factory _$$_SetLoadingCopyWith(
-          _$_SetLoading value, $Res Function(_$_SetLoading) then) =
-      __$$_SetLoadingCopyWithImpl<$Res>;
+  factory _$$SetLoadingImplCopyWith(
+          _$SetLoadingImpl value, $Res Function(_$SetLoadingImpl) then) =
+      __$$SetLoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class __$$_SetLoadingCopyWithImpl<$Res>
-    extends _$SetLoadingCopyWithImpl<$Res, _$_SetLoading>
-    implements _$$_SetLoadingCopyWith<$Res> {
-  __$$_SetLoadingCopyWithImpl(
-      _$_SetLoading _value, $Res Function(_$_SetLoading) _then)
+class __$$SetLoadingImplCopyWithImpl<$Res>
+    extends _$SetLoadingCopyWithImpl<$Res, _$SetLoadingImpl>
+    implements _$$SetLoadingImplCopyWith<$Res> {
+  __$$SetLoadingImplCopyWithImpl(
+      _$SetLoadingImpl _value, $Res Function(_$SetLoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_SetLoadingCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
   }) {
-    return _then(_$_SetLoading(
+    return _then(_$SetLoadingImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_SetLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetLoading implements _SetLoading {
-  const _$_SetLoading({required this.isLoading});
+class _$SetLoadingImpl implements _SetLoading {
+  const _$SetLoadingImpl({required this.isLoading});
 
   @override
   final bool isLoading;
@@ -106,7 +106,7 @@ class _$_SetLoading implements _SetLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetLoading &&
+            other is _$SetLoadingImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -117,18 +117,18 @@ class _$_SetLoading implements _SetLoading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SetLoadingCopyWith<_$_SetLoading> get copyWith =>
-      __$$_SetLoadingCopyWithImpl<_$_SetLoading>(this, _$identity);
+  _$$SetLoadingImplCopyWith<_$SetLoadingImpl> get copyWith =>
+      __$$SetLoadingImplCopyWithImpl<_$SetLoadingImpl>(this, _$identity);
 }
 
 abstract class _SetLoading implements SetLoading {
-  const factory _SetLoading({required final bool isLoading}) = _$_SetLoading;
+  const factory _SetLoading({required final bool isLoading}) = _$SetLoadingImpl;
 
   @override
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_SetLoadingCopyWith<_$_SetLoading> get copyWith =>
+  _$$SetLoadingImplCopyWith<_$SetLoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -175,22 +175,22 @@ class _$CommonStateCopyWithImpl<$Res, $Val extends CommonState>
 }
 
 /// @nodoc
-abstract class _$$_CommonStateCopyWith<$Res>
+abstract class _$$CommonStateImplCopyWith<$Res>
     implements $CommonStateCopyWith<$Res> {
-  factory _$$_CommonStateCopyWith(
-          _$_CommonState value, $Res Function(_$_CommonState) then) =
-      __$$_CommonStateCopyWithImpl<$Res>;
+  factory _$$CommonStateImplCopyWith(
+          _$CommonStateImpl value, $Res Function(_$CommonStateImpl) then) =
+      __$$CommonStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class __$$_CommonStateCopyWithImpl<$Res>
-    extends _$CommonStateCopyWithImpl<$Res, _$_CommonState>
-    implements _$$_CommonStateCopyWith<$Res> {
-  __$$_CommonStateCopyWithImpl(
-      _$_CommonState _value, $Res Function(_$_CommonState) _then)
+class __$$CommonStateImplCopyWithImpl<$Res>
+    extends _$CommonStateCopyWithImpl<$Res, _$CommonStateImpl>
+    implements _$$CommonStateImplCopyWith<$Res> {
+  __$$CommonStateImplCopyWithImpl(
+      _$CommonStateImpl _value, $Res Function(_$CommonStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -198,7 +198,7 @@ class __$$_CommonStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
   }) {
-    return _then(_$_CommonState(
+    return _then(_$CommonStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -209,8 +209,8 @@ class __$$_CommonStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CommonState implements _CommonState {
-  const _$_CommonState({this.isLoading = false});
+class _$CommonStateImpl implements _CommonState {
+  const _$CommonStateImpl({this.isLoading = false});
 
   @override
   @JsonKey()
@@ -225,7 +225,7 @@ class _$_CommonState implements _CommonState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CommonState &&
+            other is _$CommonStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -236,17 +236,17 @@ class _$_CommonState implements _CommonState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommonStateCopyWith<_$_CommonState> get copyWith =>
-      __$$_CommonStateCopyWithImpl<_$_CommonState>(this, _$identity);
+  _$$CommonStateImplCopyWith<_$CommonStateImpl> get copyWith =>
+      __$$CommonStateImplCopyWithImpl<_$CommonStateImpl>(this, _$identity);
 }
 
 abstract class _CommonState implements CommonState {
-  const factory _CommonState({final bool isLoading}) = _$_CommonState;
+  const factory _CommonState({final bool isLoading}) = _$CommonStateImpl;
 
   @override
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_CommonStateCopyWith<_$_CommonState> get copyWith =>
+  _$$CommonStateImplCopyWith<_$CommonStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

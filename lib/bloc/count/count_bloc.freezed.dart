@@ -35,22 +35,25 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
 }
 
 /// @nodoc
-abstract class _$$_CountCopyWith<$Res> {
-  factory _$$_CountCopyWith(_$_Count value, $Res Function(_$_Count) then) =
-      __$$_CountCopyWithImpl<$Res>;
+abstract class _$$CountImplCopyWith<$Res> {
+  factory _$$CountImplCopyWith(
+          _$CountImpl value, $Res Function(_$CountImpl) then) =
+      __$$CountImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res, _$_Count>
-    implements _$$_CountCopyWith<$Res> {
-  __$$_CountCopyWithImpl(_$_Count _value, $Res Function(_$_Count) _then)
+class __$$CountImplCopyWithImpl<$Res>
+    extends _$CountCopyWithImpl<$Res, _$CountImpl>
+    implements _$$CountImplCopyWith<$Res> {
+  __$$CountImplCopyWithImpl(
+      _$CountImpl _value, $Res Function(_$CountImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Count implements _Count {
-  const _$_Count();
+class _$CountImpl implements _Count {
+  const _$CountImpl();
 
   @override
   String toString() {
@@ -60,7 +63,7 @@ class _$_Count implements _Count {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Count);
+        (other.runtimeType == runtimeType && other is _$CountImpl);
   }
 
   @override
@@ -68,7 +71,7 @@ class _$_Count implements _Count {
 }
 
 abstract class _Count implements Count {
-  const factory _Count() = _$_Count;
+  const factory _Count() = _$CountImpl;
 }
 
 /// @nodoc
@@ -114,22 +117,22 @@ class _$CountStateCopyWithImpl<$Res, $Val extends CountState>
 }
 
 /// @nodoc
-abstract class _$$_CountStateCopyWith<$Res>
+abstract class _$$CountStateImplCopyWith<$Res>
     implements $CountStateCopyWith<$Res> {
-  factory _$$_CountStateCopyWith(
-          _$_CountState value, $Res Function(_$_CountState) then) =
-      __$$_CountStateCopyWithImpl<$Res>;
+  factory _$$CountStateImplCopyWith(
+          _$CountStateImpl value, $Res Function(_$CountStateImpl) then) =
+      __$$CountStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$_CountStateCopyWithImpl<$Res>
-    extends _$CountStateCopyWithImpl<$Res, _$_CountState>
-    implements _$$_CountStateCopyWith<$Res> {
-  __$$_CountStateCopyWithImpl(
-      _$_CountState _value, $Res Function(_$_CountState) _then)
+class __$$CountStateImplCopyWithImpl<$Res>
+    extends _$CountStateCopyWithImpl<$Res, _$CountStateImpl>
+    implements _$$CountStateImplCopyWith<$Res> {
+  __$$CountStateImplCopyWithImpl(
+      _$CountStateImpl _value, $Res Function(_$CountStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +140,7 @@ class __$$_CountStateCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$_CountState(
+    return _then(_$CountStateImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -148,8 +151,8 @@ class __$$_CountStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CountState implements _CountState {
-  const _$_CountState({this.count = 0});
+class _$CountStateImpl implements _CountState {
+  const _$CountStateImpl({this.count = 0});
 
   @override
   @JsonKey()
@@ -164,7 +167,7 @@ class _$_CountState implements _CountState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CountState &&
+            other is _$CountStateImpl &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -174,17 +177,17 @@ class _$_CountState implements _CountState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CountStateCopyWith<_$_CountState> get copyWith =>
-      __$$_CountStateCopyWithImpl<_$_CountState>(this, _$identity);
+  _$$CountStateImplCopyWith<_$CountStateImpl> get copyWith =>
+      __$$CountStateImplCopyWithImpl<_$CountStateImpl>(this, _$identity);
 }
 
 abstract class _CountState implements CountState {
-  const factory _CountState({final int count}) = _$_CountState;
+  const factory _CountState({final int count}) = _$CountStateImpl;
 
   @override
   int get count;
   @override
   @JsonKey(ignore: true)
-  _$$_CountStateCopyWith<_$_CountState> get copyWith =>
+  _$$CountStateImplCopyWith<_$CountStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

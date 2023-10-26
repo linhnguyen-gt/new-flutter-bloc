@@ -3,9 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../api/response_api.dart';
-import '../../base/base_bloc.dart';
-import '../../base/base_bloc_event.dart';
-import '../../base/base_bloc_state.dart';
+import '../../base/bloc/base_bloc.dart';
+import '../../base/bloc/base_bloc_event.dart';
+import '../../base/bloc/base_bloc_state.dart';
 import '../../model/count/count_model.dart';
 import '../../model/response/response_model.dart';
 import '../../view/page_two/page_two.dart';

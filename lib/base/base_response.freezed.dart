@@ -69,22 +69,22 @@ class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
 }
 
 /// @nodoc
-abstract class _$$_BaseResponseCopyWith<T, $Res>
+abstract class _$$BaseResponseImplCopyWith<T, $Res>
     implements $BaseResponseCopyWith<T, $Res> {
-  factory _$$_BaseResponseCopyWith(
-          _$_BaseResponse<T> value, $Res Function(_$_BaseResponse<T>) then) =
-      __$$_BaseResponseCopyWithImpl<T, $Res>;
+  factory _$$BaseResponseImplCopyWith(_$BaseResponseImpl<T> value,
+          $Res Function(_$BaseResponseImpl<T>) then) =
+      __$$BaseResponseImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({bool ok, T? data, int? statusCode});
 }
 
 /// @nodoc
-class __$$_BaseResponseCopyWithImpl<T, $Res>
-    extends _$BaseResponseCopyWithImpl<T, $Res, _$_BaseResponse<T>>
-    implements _$$_BaseResponseCopyWith<T, $Res> {
-  __$$_BaseResponseCopyWithImpl(
-      _$_BaseResponse<T> _value, $Res Function(_$_BaseResponse<T>) _then)
+class __$$BaseResponseImplCopyWithImpl<T, $Res>
+    extends _$BaseResponseCopyWithImpl<T, $Res, _$BaseResponseImpl<T>>
+    implements _$$BaseResponseImplCopyWith<T, $Res> {
+  __$$BaseResponseImplCopyWithImpl(
+      _$BaseResponseImpl<T> _value, $Res Function(_$BaseResponseImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_BaseResponseCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? statusCode = freezed,
   }) {
-    return _then(_$_BaseResponse<T>(
+    return _then(_$BaseResponseImpl<T>(
       ok: null == ok
           ? _value.ok
           : ok // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_BaseResponseCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_BaseResponse<T> implements _BaseResponse<T> {
-  const _$_BaseResponse(
+class _$BaseResponseImpl<T> implements _BaseResponse<T> {
+  const _$BaseResponseImpl(
       {required this.ok, required this.data, this.statusCode});
 
   @override
@@ -133,7 +133,7 @@ class _$_BaseResponse<T> implements _BaseResponse<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BaseResponse<T> &&
+            other is _$BaseResponseImpl<T> &&
             (identical(other.ok, ok) || other.ok == ok) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.statusCode, statusCode) ||
@@ -147,15 +147,16 @@ class _$_BaseResponse<T> implements _BaseResponse<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BaseResponseCopyWith<T, _$_BaseResponse<T>> get copyWith =>
-      __$$_BaseResponseCopyWithImpl<T, _$_BaseResponse<T>>(this, _$identity);
+  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
+      __$$BaseResponseImplCopyWithImpl<T, _$BaseResponseImpl<T>>(
+          this, _$identity);
 }
 
 abstract class _BaseResponse<T> implements BaseResponse<T> {
   const factory _BaseResponse(
       {required final bool ok,
       required final T? data,
-      final int? statusCode}) = _$_BaseResponse<T>;
+      final int? statusCode}) = _$BaseResponseImpl<T>;
 
   @override
   bool get ok;
@@ -165,6 +166,6 @@ abstract class _BaseResponse<T> implements BaseResponse<T> {
   int? get statusCode;
   @override
   @JsonKey(ignore: true)
-  _$$_BaseResponseCopyWith<T, _$_BaseResponse<T>> get copyWith =>
+  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

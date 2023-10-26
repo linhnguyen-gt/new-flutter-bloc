@@ -36,25 +36,25 @@ class _$CallResponseCopyWithImpl<$Res, $Val extends CallResponse>
 }
 
 /// @nodoc
-abstract class _$$_CallResponseCopyWith<$Res> {
-  factory _$$_CallResponseCopyWith(
-          _$_CallResponse value, $Res Function(_$_CallResponse) then) =
-      __$$_CallResponseCopyWithImpl<$Res>;
+abstract class _$$CallResponseImplCopyWith<$Res> {
+  factory _$$CallResponseImplCopyWith(
+          _$CallResponseImpl value, $Res Function(_$CallResponseImpl) then) =
+      __$$CallResponseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CallResponseCopyWithImpl<$Res>
-    extends _$CallResponseCopyWithImpl<$Res, _$_CallResponse>
-    implements _$$_CallResponseCopyWith<$Res> {
-  __$$_CallResponseCopyWithImpl(
-      _$_CallResponse _value, $Res Function(_$_CallResponse) _then)
+class __$$CallResponseImplCopyWithImpl<$Res>
+    extends _$CallResponseCopyWithImpl<$Res, _$CallResponseImpl>
+    implements _$$CallResponseImplCopyWith<$Res> {
+  __$$CallResponseImplCopyWithImpl(
+      _$CallResponseImpl _value, $Res Function(_$CallResponseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_CallResponse implements _CallResponse {
-  const _$_CallResponse();
+class _$CallResponseImpl implements _CallResponse {
+  const _$CallResponseImpl();
 
   @override
   String toString() {
@@ -64,7 +64,7 @@ class _$_CallResponse implements _CallResponse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CallResponse);
+        (other.runtimeType == runtimeType && other is _$CallResponseImpl);
   }
 
   @override
@@ -72,7 +72,7 @@ class _$_CallResponse implements _CallResponse {
 }
 
 abstract class _CallResponse implements CallResponse {
-  const factory _CallResponse() = _$_CallResponse;
+  const factory _CallResponse() = _$CallResponseImpl;
 }
 
 /// @nodoc
@@ -97,25 +97,25 @@ class _$ClickScreenCopyWithImpl<$Res, $Val extends ClickScreen>
 }
 
 /// @nodoc
-abstract class _$$_ClickScreenCopyWith<$Res> {
-  factory _$$_ClickScreenCopyWith(
-          _$_ClickScreen value, $Res Function(_$_ClickScreen) then) =
-      __$$_ClickScreenCopyWithImpl<$Res>;
+abstract class _$$ClickScreenImplCopyWith<$Res> {
+  factory _$$ClickScreenImplCopyWith(
+          _$ClickScreenImpl value, $Res Function(_$ClickScreenImpl) then) =
+      __$$ClickScreenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ClickScreenCopyWithImpl<$Res>
-    extends _$ClickScreenCopyWithImpl<$Res, _$_ClickScreen>
-    implements _$$_ClickScreenCopyWith<$Res> {
-  __$$_ClickScreenCopyWithImpl(
-      _$_ClickScreen _value, $Res Function(_$_ClickScreen) _then)
+class __$$ClickScreenImplCopyWithImpl<$Res>
+    extends _$ClickScreenCopyWithImpl<$Res, _$ClickScreenImpl>
+    implements _$$ClickScreenImplCopyWith<$Res> {
+  __$$ClickScreenImplCopyWithImpl(
+      _$ClickScreenImpl _value, $Res Function(_$ClickScreenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ClickScreen implements _ClickScreen {
-  const _$_ClickScreen();
+class _$ClickScreenImpl implements _ClickScreen {
+  const _$ClickScreenImpl();
 
   @override
   String toString() {
@@ -125,7 +125,7 @@ class _$_ClickScreen implements _ClickScreen {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ClickScreen);
+        (other.runtimeType == runtimeType && other is _$ClickScreenImpl);
   }
 
   @override
@@ -133,7 +133,7 @@ class _$_ClickScreen implements _ClickScreen {
 }
 
 abstract class _ClickScreen implements ClickScreen {
-  const factory _ClickScreen() = _$_ClickScreen;
+  const factory _ClickScreen() = _$ClickScreenImpl;
 }
 
 /// @nodoc
@@ -158,25 +158,25 @@ class _$SetLoadingCopyWithImpl<$Res, $Val extends SetLoading>
 }
 
 /// @nodoc
-abstract class _$$_SetLoadingCopyWith<$Res> {
-  factory _$$_SetLoadingCopyWith(
-          _$_SetLoading value, $Res Function(_$_SetLoading) then) =
-      __$$_SetLoadingCopyWithImpl<$Res>;
+abstract class _$$SetLoadingImplCopyWith<$Res> {
+  factory _$$SetLoadingImplCopyWith(
+          _$SetLoadingImpl value, $Res Function(_$SetLoadingImpl) then) =
+      __$$SetLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SetLoadingCopyWithImpl<$Res>
-    extends _$SetLoadingCopyWithImpl<$Res, _$_SetLoading>
-    implements _$$_SetLoadingCopyWith<$Res> {
-  __$$_SetLoadingCopyWithImpl(
-      _$_SetLoading _value, $Res Function(_$_SetLoading) _then)
+class __$$SetLoadingImplCopyWithImpl<$Res>
+    extends _$SetLoadingCopyWithImpl<$Res, _$SetLoadingImpl>
+    implements _$$SetLoadingImplCopyWith<$Res> {
+  __$$SetLoadingImplCopyWithImpl(
+      _$SetLoadingImpl _value, $Res Function(_$SetLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SetLoading implements _SetLoading {
-  const _$_SetLoading();
+class _$SetLoadingImpl implements _SetLoading {
+  const _$SetLoadingImpl();
 
   @override
   String toString() {
@@ -186,7 +186,7 @@ class _$_SetLoading implements _SetLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SetLoading);
+        (other.runtimeType == runtimeType && other is _$SetLoadingImpl);
   }
 
   @override
@@ -194,7 +194,7 @@ class _$_SetLoading implements _SetLoading {
 }
 
 abstract class _SetLoading implements SetLoading {
-  const factory _SetLoading() = _$_SetLoading;
+  const factory _SetLoading() = _$SetLoadingImpl;
 }
 
 /// @nodoc
@@ -246,22 +246,22 @@ class _$ResponseStateCopyWithImpl<$Res, $Val extends ResponseState>
 }
 
 /// @nodoc
-abstract class _$$_ResponseStateCopyWith<$Res>
+abstract class _$$ResponseStateImplCopyWith<$Res>
     implements $ResponseStateCopyWith<$Res> {
-  factory _$$_ResponseStateCopyWith(
-          _$_ResponseState value, $Res Function(_$_ResponseState) then) =
-      __$$_ResponseStateCopyWithImpl<$Res>;
+  factory _$$ResponseStateImplCopyWith(
+          _$ResponseStateImpl value, $Res Function(_$ResponseStateImpl) then) =
+      __$$ResponseStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ResponseModel> data, bool loading});
 }
 
 /// @nodoc
-class __$$_ResponseStateCopyWithImpl<$Res>
-    extends _$ResponseStateCopyWithImpl<$Res, _$_ResponseState>
-    implements _$$_ResponseStateCopyWith<$Res> {
-  __$$_ResponseStateCopyWithImpl(
-      _$_ResponseState _value, $Res Function(_$_ResponseState) _then)
+class __$$ResponseStateImplCopyWithImpl<$Res>
+    extends _$ResponseStateCopyWithImpl<$Res, _$ResponseStateImpl>
+    implements _$$ResponseStateImplCopyWith<$Res> {
+  __$$ResponseStateImplCopyWithImpl(
+      _$ResponseStateImpl _value, $Res Function(_$ResponseStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +270,7 @@ class __$$_ResponseStateCopyWithImpl<$Res>
     Object? data = null,
     Object? loading = null,
   }) {
-    return _then(_$_ResponseState(
+    return _then(_$ResponseStateImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -285,8 +285,8 @@ class __$$_ResponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseState implements _ResponseState {
-  const _$_ResponseState(
+class _$ResponseStateImpl implements _ResponseState {
+  const _$ResponseStateImpl(
       {final List<ResponseModel> data = const [], this.loading = false})
       : _data = data;
 
@@ -312,7 +312,7 @@ class _$_ResponseState implements _ResponseState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResponseState &&
+            other is _$ResponseStateImpl &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.loading, loading) || other.loading == loading));
   }
@@ -324,13 +324,14 @@ class _$_ResponseState implements _ResponseState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>
-      __$$_ResponseStateCopyWithImpl<_$_ResponseState>(this, _$identity);
+  _$$ResponseStateImplCopyWith<_$ResponseStateImpl> get copyWith =>
+      __$$ResponseStateImplCopyWithImpl<_$ResponseStateImpl>(this, _$identity);
 }
 
 abstract class _ResponseState implements ResponseState {
   const factory _ResponseState(
-      {final List<ResponseModel> data, final bool loading}) = _$_ResponseState;
+      {final List<ResponseModel> data,
+      final bool loading}) = _$ResponseStateImpl;
 
   @override
   List<ResponseModel> get data;
@@ -338,6 +339,6 @@ abstract class _ResponseState implements ResponseState {
   bool get loading;
   @override
   @JsonKey(ignore: true)
-  _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>
+  _$$ResponseStateImplCopyWith<_$ResponseStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

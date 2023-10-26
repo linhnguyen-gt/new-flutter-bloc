@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import '../bloc/common/common_bloc.dart';
 import '../common/loading/loading_indicator.dart';
 import '../navigation/app_navigator.dart';
-import 'base_bloc.dart';
+import 'bloc/base_bloc.dart';
 
 abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc>
     extends BasePageStateDelegate<T, B> {}
