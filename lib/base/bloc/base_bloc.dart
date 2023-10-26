@@ -41,7 +41,6 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
 
   Future<void> blocCatch({
     required Future<void> Function() actions,
-    bool handleLoading = true,
   }) async {
     try {
       showLoading();
