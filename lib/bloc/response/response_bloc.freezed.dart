@@ -200,7 +200,6 @@ abstract class _SetLoading implements SetLoading {
 /// @nodoc
 mixin _$ResponseState {
   List<ResponseModel> get data => throw _privateConstructorUsedError;
-  bool get loading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -213,7 +212,7 @@ abstract class $ResponseStateCopyWith<$Res> {
           ResponseState value, $Res Function(ResponseState) then) =
       _$ResponseStateCopyWithImpl<$Res, ResponseState>;
   @useResult
-  $Res call({List<ResponseModel> data, bool loading});
+  $Res call({List<ResponseModel> data});
 }
 
 /// @nodoc
@@ -230,17 +229,12 @@ class _$ResponseStateCopyWithImpl<$Res, $Val extends ResponseState>
   @override
   $Res call({
     Object? data = null,
-    Object? loading = null,
   }) {
     return _then(_value.copyWith(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -253,7 +247,7 @@ abstract class _$$ResponseStateImplCopyWith<$Res>
       __$$ResponseStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ResponseModel> data, bool loading});
+  $Res call({List<ResponseModel> data});
 }
 
 /// @nodoc
@@ -268,17 +262,12 @@ class __$$ResponseStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
-    Object? loading = null,
   }) {
     return _then(_$ResponseStateImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ResponseModel>,
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -286,8 +275,7 @@ class __$$ResponseStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ResponseStateImpl implements _ResponseState {
-  const _$ResponseStateImpl(
-      {final List<ResponseModel> data = const [], this.loading = false})
+  const _$ResponseStateImpl({final List<ResponseModel> data = const []})
       : _data = data;
 
   final List<ResponseModel> _data;
@@ -300,12 +288,8 @@ class _$ResponseStateImpl implements _ResponseState {
   }
 
   @override
-  @JsonKey()
-  final bool loading;
-
-  @override
   String toString() {
-    return 'ResponseState(data: $data, loading: $loading)';
+    return 'ResponseState(data: $data)';
   }
 
   @override
@@ -313,13 +297,12 @@ class _$ResponseStateImpl implements _ResponseState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResponseStateImpl &&
-            const DeepCollectionEquality().equals(other._data, _data) &&
-            (identical(other.loading, loading) || other.loading == loading));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_data), loading);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -329,14 +312,11 @@ class _$ResponseStateImpl implements _ResponseState {
 }
 
 abstract class _ResponseState implements ResponseState {
-  const factory _ResponseState(
-      {final List<ResponseModel> data,
-      final bool loading}) = _$ResponseStateImpl;
+  const factory _ResponseState({final List<ResponseModel> data}) =
+      _$ResponseStateImpl;
 
   @override
   List<ResponseModel> get data;
-  @override
-  bool get loading;
   @override
   @JsonKey(ignore: true)
   _$$ResponseStateImplCopyWith<_$ResponseStateImpl> get copyWith =>
