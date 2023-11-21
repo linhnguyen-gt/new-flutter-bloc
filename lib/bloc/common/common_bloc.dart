@@ -19,6 +19,7 @@ class CommonBloc extends BaseBloc<CommonEvent, CommonState> {
   }
 
   FutureOr<void> _onLoading(SetLoading event, Emitter<CommonState> emitter) {
+    // ignore: invalid_use_of_visible_for_testing_member
     emit(state.copyWith(isLoading: event.isLoading));
   }
 }

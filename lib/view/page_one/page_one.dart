@@ -18,7 +18,7 @@ class PageOne extends StatefulWidget {
 class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
   @override
   void initState() {
-    // TODO: implement initState
+    // TODO(LinhNguyen): implement initState
     super.initState();
     bloc.add(const CallResponse());
   }

@@ -14,12 +14,12 @@ class ResponseModel with _$ResponseModel {
   }) = _ResponseModel;
 
   static ResponseModel fromJson(Map<String, dynamic> json) => ResponseModel(
-        idNation: json["ID Nation"],
-        nation: json["Nation"],
-        idYear: json["ID Year"],
-        year: json["Year"],
-        population: json["Population"],
-        slugNation: json["Slug Nation"],
+        idNation: json['ID Nation'],
+        nation: json['Nation'],
+        idYear: json['ID Year'],
+        year: json['Year'],
+        population: json['Population'],
+        slugNation: json['Slug Nation'],
       );
 
   static List<ResponseModel> getListFormJson(Map<String, dynamic> json) {

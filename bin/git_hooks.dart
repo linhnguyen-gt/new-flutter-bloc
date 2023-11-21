@@ -3,7 +3,7 @@ import 'package:git_hooks/git_hooks.dart';
 
 void main(List<String> arguments) {
   // ignore: omit_local_variable_types
-  Map<Git, UserBackFun> params = {
+  final Map<Git, UserBackFun> params = {
     Git.commitMsg: commitMsg,
     Git.preCommit: preCommit
   };
@@ -11,7 +11,7 @@ void main(List<String> arguments) {
 }
 
 Future<bool> commitMsg() async {
-  var commitMsg = Utils.getCommitEditMsg();
+  final commitMsg = Utils.getCommitEditMsg();
   if (commitMsg.startsWith('fix: ') ||
       commitMsg.startsWith('feat: ') ||
       commitMsg.startsWith('refactor: ') ||
