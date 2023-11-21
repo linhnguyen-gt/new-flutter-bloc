@@ -6,4 +6,4 @@ pre-commit:
 commit-msg:
   commands:
     validate:
-      run: flutter pub run ./git_hooks/commit_message.dart
+      run: flutter analyze && flutter pub run ./git_hooks/commit_message.dart
