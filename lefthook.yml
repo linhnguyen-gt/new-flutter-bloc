@@ -1,3 +1,8 @@
+pre-push:
+  parallel: true
+  commands:
+    linter:
+      run: flutter analyze
 pre-commit:
   commands:
     pretty:
@@ -6,4 +11,4 @@ pre-commit:
 commit-msg:
   commands:
     validate:
-      run: flutter analyze && flutter pub run ./git_hooks/commit_message.dart
+      run: flutter pub run ./git_hooks/commit_message.dart
