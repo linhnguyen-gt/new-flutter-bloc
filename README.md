@@ -6,8 +6,8 @@ A new Flutter project.
 
 ## Getting Started
 
-- Git hook: [lefthook](https://github.com/evilmartians/lefthook)
 - Rebuild: flutter pub run build_runner watch
+- Git hook: [lefthook](https://github.com/evilmartians/lefthook)
 - State management: [flutter_bloc](https://pub.dev/packages/flutter_bloc)
 - Navigation: [go_router](https://pub.dev/packages/go_router)
 - Singleton services: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)

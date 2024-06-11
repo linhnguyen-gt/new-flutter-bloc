@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 
 import '../base/base_response.dart';
+import '../env/env.dart';
 import 'http_config.dart';
 
 class DefaultApiConfig {
-  static const String baseURL = 'https://datausa.io/api/';
+  static const String baseURL = Env.apiUrl;
 }
 
 class HttpClient {

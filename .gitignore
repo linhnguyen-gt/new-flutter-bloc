@@ -3,11 +3,14 @@
 *.log
 *.pyc
 *.swp
+*.freezed.dart
+*.g.dart
 .DS_Store
 .atom/
 .buildlog/
 .history
 .svn/
+.env
 migrate_working_dir/
 
 # IntelliJ related
