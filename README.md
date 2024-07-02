@@ -4,13 +4,15 @@
 
 A new Flutter project.
 
+Need create file .env first!!
+
 ## Getting Started
 
 - Rebuild: flutter pub run build_runner watch
 - Git hook: [lefthook](https://github.com/evilmartians/lefthook)
 - State management: [flutter_bloc](https://pub.dev/packages/flutter_bloc)
-- Navigation: [go_router](https://pub.dev/packages/go_router)
-- Singleton services: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
+- Navigation: [auto_route](https://pub.dev/packages/auto_route)
+- DI: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
 - REST API: [dio](https://pub.dev/packages/dio)
 - Data class: [freezed](https://pub.dev/packages/freezed)
 

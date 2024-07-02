@@ -1,15 +1,15 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../base/base_page_state.dart';
 import '../../bloc/response/response_bloc.dart';
 
+@RoutePage()
 class PageOne extends StatefulWidget {
-  static const String route = 'PageOne';
+  // final String title;
 
-  final String title;
-
-  const PageOne({required this.title, super.key});
+  const PageOne({super.key});
 
   @override
   State<PageOne> createState() => _PageOneState();
@@ -28,7 +28,7 @@ class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text('Page One'),
         actions: [
           GestureDetector(
             onTap: () => bloc.add(const ClickScreen()),

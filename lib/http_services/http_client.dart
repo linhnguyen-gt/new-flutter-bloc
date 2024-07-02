@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../base/base_response.dart';
 import '../env/env.dart';
+import '../extentions/extenstions.dart';
 import 'http_config.dart';
 
 class DefaultApiConfig {
@@ -112,10 +113,4 @@ class HttpClient {
 // Future? refreshToken() {
 //   return null;
 // }
-}
-
-extension ApiMethodExtension on ApiMethod {
-  String get lowercaseValue {
-    return toString().split('.').last.toLowerCase();
-  }
 }

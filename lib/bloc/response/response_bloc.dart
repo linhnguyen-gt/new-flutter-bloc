@@ -8,7 +8,7 @@ import '../../base/bloc/base_bloc_event.dart';
 import '../../base/bloc/base_bloc_state.dart';
 import '../../model/count/count_model.dart';
 import '../../model/response/response_model.dart';
-import '../../view/page_two/page_two.dart';
+import '../../navigation/app_router.gr.dart';
 
 part 'response_bloc.freezed.dart';
 part 'response_event.dart';
@@ -33,8 +33,6 @@ class ResponseBloc extends BaseBloc<ResponseEvent, ResponseState> {
   }
 
   void _onClickScreen(ClickScreen event, Emitter<ResponseState> emit) {
-    const CountModel countParams = CountModel(count: 1);
-
-    navigator.pushNamed(PageTwo.route, extra: countParams);
+    navigator.push(RouteTwo(countPageOne: const CountModel(count: 2)));
   }
 }

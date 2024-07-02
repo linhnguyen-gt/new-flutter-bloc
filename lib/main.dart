@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-import 'navigation/setup_route.dart';
-import 'store/config_store.dart';
+import 'di/di.dart';
+import 'navigation/app_router.dart';
 
 Future<void> main() async {
   configureInjection();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-final _router = SetupRoute();
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  final _router = GetIt.instance.get<AppRouter>();
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: _router.appRouter,
       title: 'Flutter Demo',
+      routerConfig: _router.config(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
