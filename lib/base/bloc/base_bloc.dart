@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/common/common_bloc.dart';
@@ -46,6 +48,8 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
       showLoading();
       await actions.call();
       hideLoading();
-    } catch (e) {}
+    } catch (e) {
+      developer.log('$e', name: 'Error');
+    }
   }
 }
