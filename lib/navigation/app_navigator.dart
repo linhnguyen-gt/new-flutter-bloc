@@ -13,8 +13,8 @@ class AppNavigator {
   Future<T?>? push<T extends Object?>(PageRouteInfo route) =>
       _appRouter.push<T>(route);
 
-  Future<T?>? replace<T extends Object?>(PageRouteInfo page) =>
-      _appRouter.replace(page);
+  Future<T?>? replace<T extends Object?>(PageRouteInfo route) =>
+      _appRouter.replace(route);
 
   /// Pop the top page off the Navigator's page stack by calling
   /// [Navigator.pop].
