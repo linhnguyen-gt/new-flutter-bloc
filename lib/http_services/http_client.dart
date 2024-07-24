@@ -51,7 +51,7 @@ class HttpClient {
       );
 
       return BaseResponse(
-        ok: false,
+        ok: true,
         data: res.data,
         statusCode: res.statusCode,
       );
