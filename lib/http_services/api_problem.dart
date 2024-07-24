@@ -12,8 +12,7 @@ class ApiException implements Exception {
   String toString() => 'ApiException: $message (Status code: $statusCode)';
 }
 
-Future<BaseResponse<Data>> apiProblem<Data>(
-    BaseResponse<Map<String, dynamic>> response) {
+Future<BaseResponse<T>> apiProblem<T>(BaseResponse<dynamic> response) {
   switch (response.statusCode) {
     case StatusCode.BAD_REQUEST:
       return Future.error(
@@ -30,6 +29,9 @@ Future<BaseResponse<Data>> apiProblem<Data>(
     case StatusCode.INTERNAL_SERVER_ERROR:
       return Future.error(ApiException('Internal server error',
           statusCode: StatusCode.INTERNAL_SERVER_ERROR));
+    case StatusCode.UNPROCESSABLE_ENTITY:
+      return Future.error(ApiException('Unprocessable entity',
+          statusCode: StatusCode.UNPROCESSABLE_ENTITY));
     default:
       return Future.error(
           ApiException('Unknown error', statusCode: response.statusCode!));

@@ -1,8 +1,10 @@
+import 'dart:developer' as developer;
+
 import 'package:dio/dio.dart';
 
+import '../../env/env.dart';
 import '../base/base_response.dart';
-import '../env/env.dart';
-import '../extentions/extenstions.dart';
+import '../extensions/extensions.dart';
 import 'http_config.dart';
 
 class DefaultApiConfig {
@@ -25,37 +27,38 @@ class HttpClient {
 
   void _init() {
     instance ??= Dio(BaseOptions(baseUrl: DefaultApiConfig.baseURL));
+    setInterceptorRequest();
+    setInterceptorResponse();
   }
 
-  Future<BaseResponse<Data>> request<Data extends Map<String, dynamic>,
-          Method extends ApiMethod, Body, Params>(
-      String endpoint, HttpClientConfig<Body, Params, Method> apiConfig) async {
+  Future<BaseResponse<T>> request<T, Method extends ApiMethod, Body, Params>(
+    String endpoint,
+    HttpClientConfig<Method, Params, Body> apiConfig,
+  ) async {
     final method = apiConfig.config.method;
     final params = apiConfig.config.params;
     final body = apiConfig.config.body;
     try {
       final res = await instance!.request(
         endpoint,
-        queryParameters: (method == ApiMethod.get || method == ApiMethod.delete)
-            ? (params! as Map<String, dynamic>)
+        queryParameters: [ApiMethod.get, ApiMethod.delete].contains(method)
+            ? (params as Map<String, dynamic>?)
             : null,
-        data: (method != ApiMethod.get && method != ApiMethod.delete)
-            ? body
-            : null,
+        data: ![ApiMethod.get, ApiMethod.delete].contains(method) ? body : null,
         options: Options(
           method: method.lowercaseValue,
         ),
       );
 
-      return BaseResponse<Data>(
-        ok: true,
+      return BaseResponse(
+        ok: false,
         data: res.data,
         statusCode: res.statusCode,
       );
     } catch (e) {
       final error = e as DioException;
 
-      return BaseResponse<Data>(
+      return BaseResponse(
         ok: false,
         data: error.response?.data,
         statusCode: error.response?.statusCode,
@@ -63,54 +66,53 @@ class HttpClient {
     }
   }
 
-// void setInterceptorRequest() {
-//   instance!.interceptors.add(
-//     InterceptorsWrapper(
-//       onRequest: (options, handler) async {
-//         token = 'token';
-//
-//         if (token != null) {
-//           options.headers['Authorization'] = 'Bearer $token';
-//         }
-//
-//         handler.next(options);
-//       },
-//     ),
-//   );
-// }
-//
-// void setInterceptorResponse() {
-//   instance!.interceptors.add(
-//     InterceptorsWrapper(
-//       onResponse: (response, handler) {
-//         handler.next(response);
-//       },
-//       onError: (error, handler) async {
-//         final errorResponse = error.response;
-//         if (errorResponse != null) {
-//           print('error config:: ${errorResponse.data}');
-//           // Access Token was expired
-//           if (errorResponse.statusCode == 401) {
-//             if (errorResponse.data['message'] == 'Unauthorized') {
-//               try {
-//                 await refreshToken();
-//               } catch (refreshError) {
-//                 refreshError as DioException;
-//                 return Future.error(
-//                     refreshError.response?.data ?? refreshError);
-//               }
-//             } else {
-//               return Future.error(errorResponse.data ?? error);
-//             }
-//           }
-//         }
-//         return handler.next(error);
-//       },
-//     ),
-//   );
-// }
-//
-// Future? refreshToken() {
-//   return null;
-// }
+  void setInterceptorRequest() {
+    instance!.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          token = 'token';
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
+          }
+
+          handler.next(options);
+        },
+      ),
+    );
+  }
+
+  void setInterceptorResponse() {
+    instance!.interceptors.add(
+      InterceptorsWrapper(
+        onResponse: (response, handler) {
+          handler.next(response);
+        },
+        onError: (error, handler) async {
+          final errorResponse = error.response;
+          if (errorResponse != null) {
+            developer.log('${errorResponse.data}', name: 'Error config:');
+
+            // Access Token was expired
+            if (errorResponse.statusCode == 401 ||
+                errorResponse.data['message'] == 'Unauthorized') {
+              try {
+                await refreshToken();
+                return;
+              } catch (refreshError) {
+                refreshError as DioException;
+                return Future.error(
+                    refreshError.response?.data ?? refreshError);
+              }
+            }
+          }
+          return handler.next(error);
+        },
+      ),
+    );
+  }
+
+  Future<dynamic>? refreshToken() {
+    // handle token here!!
+    return null;
+  }
 }

@@ -2,8 +2,8 @@ import 'dart:developer' as developer;
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../navigation/app_navigator.dart';
 import '../../bloc/common/common_bloc.dart';
-import '../../navigation/app_navigator.dart';
 import 'base_bloc_event.dart';
 import 'base_bloc_state.dart';
 
@@ -37,18 +37,24 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
     commonBloc.add(const SetLoading(isLoading: true));
   }
 
+  void reset(S initialState) {
+    // ignore: invalid_use_of_visible_for_testing_member
+    emit(initialState);
+  }
+
   void hideLoading() {
     commonBloc.add(const SetLoading(isLoading: false));
   }
 
-  Future<void> blocCatch({
-    required Future<void> Function() actions,
-  }) async {
+  Future<void> blocCatch(
+      {required Future<void> Function() actions,
+      bool? isLoading = true}) async {
     try {
-      showLoading();
+      isLoading! ? showLoading() : null;
       await actions.call();
       hideLoading();
     } catch (e) {
+      hideLoading();
       developer.log('$e', name: 'Error');
     }
   }
