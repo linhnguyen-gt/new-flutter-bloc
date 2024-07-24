@@ -15,7 +15,7 @@ Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
   );
 
   if (!response.ok) {
-    return await apiProblem(response);
+    return apiProblem(response);
   }
 
   return BaseResponse<List<ResponseModel>>(
