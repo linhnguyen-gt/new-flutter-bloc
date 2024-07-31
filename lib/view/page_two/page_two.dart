@@ -30,15 +30,25 @@ class _PageTwoState extends BasePageState<PageTwo, CountBloc> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'Count page one params: ${widget.countPageOne.count}',
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Text(
+                    'List length page one params: ${widget.countPageOne.count}',
+                  ),
                 ),
-                const Text(
-                  'You have pushed the button this many times:',
-                ),
-                Text(
-                  '${state.count}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'You have pushed the button this many times:',
+                      ),
+                      Text(
+                        '${state.count}',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

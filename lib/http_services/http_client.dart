@@ -41,9 +41,8 @@ class HttpClient {
     try {
       final res = await instance!.request(
         endpoint,
-        queryParameters: [ApiMethod.get, ApiMethod.delete].contains(method)
-            ? (params as Map<String, dynamic>?)
-            : null,
+        queryParameters:
+            [ApiMethod.get, ApiMethod.delete].contains(method) ? params : null,
         data: ![ApiMethod.get, ApiMethod.delete].contains(method) ? body : null,
         options: Options(
           method: method.lowercaseValue,
@@ -51,7 +50,7 @@ class HttpClient {
       );
 
       return BaseResponse(
-        ok: false,
+        ok: true,
         data: res.data,
         statusCode: res.statusCode,
       );

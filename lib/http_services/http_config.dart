@@ -1,6 +1,6 @@
 class HttpClientBaseConfig<M extends ApiMethod, P, B> {
   final M method;
-  final P? params;
+  final Map<String, dynamic>? params;
   final B? body;
 
   HttpClientBaseConfig({required this.method, this.params, this.body});
@@ -11,7 +11,7 @@ class HttpClientConfig<M extends ApiMethod, P, B> {
 
   HttpClientConfig(this.config);
 
-  factory HttpClientConfig.get({P? params}) {
+  factory HttpClientConfig.get({Map<String, dynamic>? params}) {
     return HttpClientConfig<M, P, dynamic>(
       HttpClientBaseConfig<M, P, dynamic>(
         method: ApiMethod.get as M,
@@ -20,7 +20,7 @@ class HttpClientConfig<M extends ApiMethod, P, B> {
     ) as HttpClientConfig<M, P, B>;
   }
 
-  factory HttpClientConfig.delete({P? params}) {
+  factory HttpClientConfig.delete({Map<String, dynamic>? params}) {
     return HttpClientConfig<M, P, dynamic>(
       HttpClientBaseConfig<M, P, dynamic>(
         method: ApiMethod.delete as M,

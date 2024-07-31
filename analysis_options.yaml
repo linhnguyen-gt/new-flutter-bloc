@@ -14,14 +14,13 @@ analyzer:
     strict-raw-types: true
   errors:
     unused_import: warning
-    # invalid_annotation_target: ignore
+    invalid_annotation_target: ignore
 
 linter:
   rules:
     - always_declare_return_types
     - always_put_control_body_on_new_line
     - always_put_required_named_parameters_first
-    - always_require_non_null_named_parameters
     - annotate_overrides
     #    - avoid_dynamic_calls
     - avoid_empty_else

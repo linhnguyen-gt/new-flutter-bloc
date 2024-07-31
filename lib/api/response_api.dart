@@ -4,14 +4,11 @@ import '../http_services/http_client.dart';
 import '../http_services/http_config.dart';
 import '../model/response/response_model.dart';
 
-Future<BaseResponse<List<ResponseModel>>?> responseApi() async {
-  final params = <String, dynamic>{
-    'drilldowns': 'Nation',
-    'measures': 'Population',
-  };
+Future<BaseResponse<List<ResponseModel>>> responseApi(
+    ResponseParamModel param) async {
   final response = await HttpClient.getInstance().request(
     'data',
-    HttpClientConfig.get(params: params),
+    HttpClientConfig.get(params: param.toJson()),
   );
 
   if (!response.ok) {

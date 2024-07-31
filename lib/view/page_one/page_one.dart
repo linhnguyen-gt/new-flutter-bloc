@@ -7,8 +7,6 @@ import '../../bloc/response/response_bloc.dart';
 
 @RoutePage()
 class PageOne extends StatefulWidget {
-  // final String title;
-
   const PageOne({super.key});
 
   @override
@@ -23,6 +21,10 @@ class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
     bloc.add(const CallResponse());
   }
 
+  Future<void> onRefresh() async {
+    bloc.add(const CallResponse());
+  }
+
   @override
   Widget buildPage(BuildContext context) {
     return Scaffold(
@@ -30,24 +32,46 @@ class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Page One'),
         actions: [
-          GestureDetector(
-            onTap: () => bloc.add(const ClickScreen()),
-            child: const Icon(Icons.arrow_forward_rounded),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: GestureDetector(
+              onTap: () => bloc.add(const ClickScreen()),
+              child: const Icon(Icons.arrow_forward_rounded),
+            ),
           )
         ],
       ),
       body: BlocBuilder<ResponseBloc, ResponseState>(
         builder: (context, state) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Response from Api list: ${state.data.length}',
-                ),
-                // ListView.builder(
-                //     itemCount: state.data.length, itemBuilder: itemBuilder)
-              ],
+          return RefreshIndicator(
+            onRefresh: onRefresh,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: Text(
+                      'Response from Api list: ${state.data.length}',
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: state.data.length,
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        final item = state.data[index];
+                        return ListTile(
+                          title: Text(item.state ?? ''),
+                          subtitle: Text('Population: ${item.population}'),
+                          trailing: Text(item.year ?? ''),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         },

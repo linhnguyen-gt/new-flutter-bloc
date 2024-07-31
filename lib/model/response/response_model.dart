@@ -1,26 +1,33 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'response_model.freezed.dart';
+part 'response_model.g.dart';
+
+@freezed
+class ResponseParamModel with _$ResponseParamModel {
+  const factory ResponseParamModel({
+    String? drilldowns,
+    String? measures,
+    String? year,
+  }) = _ResponseParamModel;
+
+  factory ResponseParamModel.fromJson(Map<String, dynamic> json) =>
+      _$ResponseParamModelFromJson(json);
+}
 
 @freezed
 class ResponseModel with _$ResponseModel {
   const factory ResponseModel({
-    required String idNation,
-    required String nation,
-    required int idYear,
-    required String year,
-    required int population,
-    required String slugNation,
+    @JsonKey(name: 'ID State') String? idState,
+    @JsonKey(name: 'State') String? state,
+    @JsonKey(name: 'ID Year') int? idYear,
+    @JsonKey(name: 'Year') String? year,
+    @JsonKey(name: 'Population') int? population,
+    @JsonKey(name: 'Slug State') String? slugState,
   }) = _ResponseModel;
 
-  static ResponseModel fromJson(Map<String, dynamic> json) => ResponseModel(
-        idNation: json['ID Nation'],
-        nation: json['Nation'],
-        idYear: json['ID Year'],
-        year: json['Year'],
-        population: json['Population'],
-        slugNation: json['Slug Nation'],
-      );
+  factory ResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$ResponseModelFromJson(json);
 
   static List<ResponseModel> getListFormJson(Map<String, dynamic> json) {
     final listData = json['data'];

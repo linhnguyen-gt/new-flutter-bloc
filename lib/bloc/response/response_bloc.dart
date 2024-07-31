@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,21 +19,26 @@ part 'response_state.dart';
 class ResponseBloc extends BaseBloc<ResponseEvent, ResponseState> {
   ResponseBloc() : super(const ResponseState()) {
     on<CallResponse>(_onCallResponse);
-
     on<ClickScreen>(_onClickScreen);
   }
 
   Future<void> _onCallResponse(
       CallResponse event, Emitter<ResponseState> emit) async {
     await blocCatch(actions: () async {
-      final response = await responseApi();
-      if (response!.ok) {
+      // example of calling api with parameters and response using isolate
+      final response = await compute(
+          responseApi,
+          const ResponseParamModel(
+              drilldowns: 'State', measures: 'Population', year: 'latest'));
+
+      if (response.ok) {
         emit(state.copyWith(data: response.data!));
       }
     });
   }
 
   void _onClickScreen(ClickScreen event, Emitter<ResponseState> emit) {
-    navigator.push(RouteTwo(countPageOne: const CountModel(count: 2)));
+    navigator
+        .push(RouteTwo(countPageOne: CountModel(count: state.data.length)));
   }
 }
