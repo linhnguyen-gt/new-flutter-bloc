@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 import '../bloc/common/common_bloc.dart';
 import '../common/loading/loading_indicator.dart';
+import '../di/di.dart';
 import '../navigation/app_navigator.dart';
 import 'bloc/base_bloc.dart';
 
@@ -12,12 +12,12 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc>
 
 abstract class BasePageStateDelegate<T extends StatefulWidget,
     B extends BaseBloc> extends State<T> {
-  late final AppNavigator navigator = GetIt.instance.get<AppNavigator>();
+  late final AppNavigator navigator = getIt.get<AppNavigator>();
 
-  late final CommonBloc commonBloc = GetIt.instance.get<CommonBloc>()
+  late final CommonBloc commonBloc = getIt.get<CommonBloc>()
     ..navigator = navigator;
 
-  late final B bloc = GetIt.instance.get<B>()
+  late final B bloc = getIt.get<B>()
     ..navigator = navigator
     ..commonBloc = commonBloc;
 

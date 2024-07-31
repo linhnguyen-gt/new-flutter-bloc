@@ -50,11 +50,19 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
       {required Future<void> Function() actions,
       bool? isLoading = true}) async {
     try {
-      isLoading! ? showLoading() : null;
+      if (isLoading!) {
+        showLoading();
+      }
+
       await actions.call();
-      hideLoading();
+
+      if (isLoading) {
+        hideLoading();
+      }
     } catch (e) {
-      hideLoading();
+      if (isLoading!) {
+        hideLoading();
+      }
       developer.log('$e', name: 'Error');
     }
   }

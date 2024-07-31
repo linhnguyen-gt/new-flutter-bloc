@@ -12,7 +12,7 @@ Future<BaseResponse<List<ResponseModel>>> responseApi(
   );
 
   if (!response.ok) {
-    return await apiProblem(response);
+    return apiProblem(response);
   }
 
   return BaseResponse<List<ResponseModel>>(
