@@ -15,10 +15,10 @@ void main() {
     print('👍 Valid commit message!');
     exit(0);
   }
-  print('✖  subject may not be empty');
-  print('✖  type may not be empty');
+  print('👎 ✖  subject may not be empty');
+  print('👎 ✖  type may not be empty');
   print(
-      '✖  type-enum: ["build","doc","feat","fix","refactor","revert","style","test"]');
+      '👎 ✖  type-enum: ["build","doc","feat","fix","refactor","revert","style","test"]');
   exit(1);
 }
 
