@@ -2,23 +2,24 @@
 import 'dart:io';
 
 void main() {
-  final commitMessageFile = File('.git/COMMIT_EDITMSG');
-
-  if (!commitMessageFile.existsSync()) {
-    print('Commit message file does not exist.');
-    exit(1);
+  final myFile = File('.git/COMMIT_EDITMSG');
+  final commitMsg = myFile.readAsStringSync();
+  if (commitMsg.startsWith('fix: ') ||
+      commitMsg.startsWith('feat: ') ||
+      commitMsg.startsWith('refactor: ') ||
+      commitMsg.startsWith('build: ') ||
+      commitMsg.startsWith('docs: ') ||
+      commitMsg.startsWith('revert: ') ||
+      commitMsg.startsWith('style: ') ||
+      commitMsg.startsWith('test: ')) {
+    print('👍 Valid commit message!');
+    exit(0);
   }
-
-  final commitMessage = commitMessageFile.readAsStringSync();
-
-  if (!isValidCommitMessage(commitMessage)) {
-    print('👎 Invalid commit message format.');
-    print('Commit message should follow the Conventional Commits format.');
-    exit(1);
-  }
-
-  print('👍 Valid commit message!');
-  exit(0);
+  print('✖  subject may not be empty');
+  print('✖  type may not be empty');
+  print(
+      '✖  type-enum: ["build","doc","feat","fix","refactor","revert","style","test"]');
+  exit(1);
 }
 
 bool isValidCommitMessage(String commitMessage) {
