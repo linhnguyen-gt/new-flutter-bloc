@@ -35,9 +35,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
 
-  dart_pre_commit: ^5.2.1
-  git_hooks: 1.0.1
-
   dio: ^5.3.3
   flutter_bloc: ^8.1.5
   equatable: 2.0.5
