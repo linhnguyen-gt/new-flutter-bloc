@@ -169,14 +169,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  console:
-    dependency: transitive
-    description:
-      name: console
-      sha256: e04e7824384c5b39389acdd6dc7d33f3efe6b232f6f16d7626f194f6a01ad69a
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.0"
   convert:
     dependency: transitive
     description:
@@ -201,14 +193,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  dart_pre_commit:
-    dependency: "direct main"
-    description:
-      name: dart_pre_commit
-      sha256: ec87770c13131233143f760eadefae3e44db9f1c6fb72c8b778f689c7e38b355
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.3.0"
   dart_style:
     dependency: transitive
     description:
@@ -363,14 +347,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.7.0"
-  git_hooks:
-    dependency: "direct main"
-    description:
-      name: git_hooks
-      sha256: "2d3d6fc1a7bf3430988f0a62ca376b6e26a3ebe187c4935bd6c8b346ba954e60"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   glob:
     dependency: transitive
     description:
@@ -611,14 +587,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
-  riverpod:
-    dependency: transitive
-    description:
-      name: riverpod
-      sha256: f21b32ffd26a36555e501b04f4a5dca43ed59e16343f1a30c13632b2351dfa4d
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.1"
   shelf:
     dependency: transitive
     description:
@@ -680,14 +648,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.1"
-  state_notifier:
-    dependency: transitive
-    description:
-      name: state_notifier
-      sha256: b8677376aa54f2d7c58280d5a007f9e8774f1968d1fb1c096adcb4792fba29bb
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   stream_channel:
     dependency: transitive
     description:
