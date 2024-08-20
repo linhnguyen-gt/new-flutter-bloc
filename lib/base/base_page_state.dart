@@ -30,14 +30,17 @@ abstract class BasePageStateDelegate<T extends StatefulWidget,
       ],
       child: buildPageListeners(
           child: Stack(
-        children: [
-          buildPage(context),
-          BlocBuilder<CommonBloc, CommonState>(
-              buildWhen: (prev, current) => prev.isLoading != current.isLoading,
-              builder: (context, state) => Visibility(
-                  visible: state.isLoading, child: buildPageLoading()))
-        ],
+        children: [buildPage(context), _isLoadingOverlay()],
       )),
+    );
+  }
+
+  Widget _isLoadingOverlay() {
+    return BlocBuilder<CommonBloc, CommonState>(
+      buildWhen: (previous, current) => previous.isLoading != current.isLoading,
+      builder: (context, state) {
+        return Visibility(visible: state.isLoading, child: buildPageLoading());
+      },
     );
   }
 

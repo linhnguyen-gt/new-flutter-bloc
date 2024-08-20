@@ -15,7 +15,7 @@ Future<BaseResponse<List<ResponseModel>>> responseApi(
     return apiProblem(response);
   }
 
-  return BaseResponse<List<ResponseModel>>(
+  return BaseResponse(
     ok: response.ok,
     data: ResponseModel.getListFormJson(response.data!),
   );

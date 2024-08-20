@@ -14,30 +14,6 @@ import 'package:new_flutter_bloc/model/count/count_model.dart' as _i4;
 import 'package:new_flutter_bloc/view/page_one/page_one.dart' as _i1;
 import 'package:new_flutter_bloc/view/page_two/page_two.dart' as _i2;
 
-abstract class $AppRouter extends _i3.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    RouteOne.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i1.PageOne(),
-      );
-    },
-    RouteTwo.name: (routeData) {
-      final args = routeData.argsAs<RouteTwoArgs>();
-      return _i3.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i2.PageTwo(
-          countPageOne: args.countPageOne,
-          key: args.key,
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [_i1.PageOne]
 class RouteOne extends _i3.PageRouteInfo<void> {
@@ -49,7 +25,12 @@ class RouteOne extends _i3.PageRouteInfo<void> {
 
   static const String name = 'RouteOne';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static _i3.PageInfo page = _i3.PageInfo(
+    name,
+    builder: (data) {
+      return const _i1.PageOne();
+    },
+  );
 }
 
 /// generated route for
@@ -70,8 +51,16 @@ class RouteTwo extends _i3.PageRouteInfo<RouteTwoArgs> {
 
   static const String name = 'RouteTwo';
 
-  static const _i3.PageInfo<RouteTwoArgs> page =
-      _i3.PageInfo<RouteTwoArgs>(name);
+  static _i3.PageInfo page = _i3.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<RouteTwoArgs>();
+      return _i2.PageTwo(
+        countPageOne: args.countPageOne,
+        key: args.key,
+      );
+    },
+  );
 }
 
 class RouteTwoArgs {

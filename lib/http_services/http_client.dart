@@ -7,9 +7,8 @@ import '../base/base_response.dart';
 import '../extensions/extensions.dart';
 import 'http_config.dart';
 
-class DefaultApiConfig {
-  static const String baseURL = Env.apiUrl;
-}
+const String baseURL = Env.apiUrl;
+const _methodRes = [ApiMethod.get, ApiMethod.delete];
 
 class HttpClient {
   static HttpClient? _instance;
@@ -26,12 +25,13 @@ class HttpClient {
   }
 
   void _init() {
-    instance ??= Dio(BaseOptions(baseUrl: DefaultApiConfig.baseURL));
+    instance ??= Dio(BaseOptions(baseUrl: baseURL));
     setInterceptorRequest();
     setInterceptorResponse();
   }
 
-  Future<BaseResponse<T>> request<T, Method extends ApiMethod, Body, Params>(
+  Future<BaseResponse<Map<String, dynamic>>>
+      request<Method extends ApiMethod, Body, Params>(
     String endpoint,
     HttpClientConfig<Method, Params, Body> apiConfig,
   ) async {
@@ -41,9 +41,8 @@ class HttpClient {
     try {
       final res = await instance!.request(
         endpoint,
-        queryParameters:
-            [ApiMethod.get, ApiMethod.delete].contains(method) ? params : null,
-        data: ![ApiMethod.get, ApiMethod.delete].contains(method) ? body : null,
+        queryParameters: _methodRes.contains(method) ? params : null,
+        data: !_methodRes.contains(method) ? body : null,
         options: Options(
           method: method.lowercaseValue,
         ),

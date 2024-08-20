@@ -27,9 +27,9 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i925.CommonBloc>(() => _i925.CommonBloc());
-    gh.factory<_i86.CountBloc>(() => _i86.CountBloc());
     gh.factory<_i859.ResponseBloc>(() => _i859.ResponseBloc());
+    gh.factory<_i86.CountBloc>(() => _i86.CountBloc());
+    gh.factory<_i925.CommonBloc>(() => _i925.CommonBloc());
     gh.lazySingleton<_i443.AppRouter>(() => _i443.AppRouter());
     gh.lazySingleton<_i1024.AppNavigator>(
         () => _i1024.AppNavigator(gh<_i443.AppRouter>()));
