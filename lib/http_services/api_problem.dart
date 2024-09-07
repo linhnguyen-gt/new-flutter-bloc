@@ -32,7 +32,29 @@ Future<BaseResponse<T>> apiProblem<T>(BaseResponse<dynamic> response) {
     case StatusCode.UNPROCESSABLE_ENTITY:
       return Future.error(ApiException('Unprocessable entity',
           statusCode: StatusCode.UNPROCESSABLE_ENTITY));
+    case StatusCode.SERVICE_UNAVAILABLE:
+      return Future.error(ApiException('Service unavailable',
+          statusCode: StatusCode.SERVICE_UNAVAILABLE));
+    case StatusCode.GATEWAY_TIMEOUT:
+      return Future.error(ApiException('Gateway timeout',
+          statusCode: StatusCode.GATEWAY_TIMEOUT));
+    case StatusCode.TOO_MANY_REQUESTS:
+      return Future.error(ApiException('Too many requests',
+          statusCode: StatusCode.TOO_MANY_REQUESTS));
+    case StatusCode.CONFLICT:
+      return Future.error(
+          ApiException('Conflict', statusCode: StatusCode.CONFLICT));
+    case StatusCode.PRECONDITION_FAILED:
+      return Future.error(ApiException('Precondition failed',
+          statusCode: StatusCode.PRECONDITION_FAILED));
     default:
+      if (response.statusCode! >= 400 && response.statusCode! < 500) {
+        return Future.error(
+            ApiException('Client error', statusCode: response.statusCode!));
+      } else if (response.statusCode! >= 500) {
+        return Future.error(
+            ApiException('Server error', statusCode: response.statusCode!));
+      }
       return Future.error(
           ApiException('Unknown error', statusCode: response.statusCode!));
   }
