@@ -65,6 +65,12 @@ class HttpClient {
       );
     } on DioException catch (e) {
       return _handleDioException(e);
+    } catch (e) {
+      return BaseResponse(
+        ok: false,
+        data: {'error': e.toString()},
+        statusCode: 500,
+      );
     }
   }
 

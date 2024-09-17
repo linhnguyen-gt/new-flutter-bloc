@@ -46,24 +46,31 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
     commonBloc.add(const SetLoading(isLoading: false));
   }
 
-  Future<void> blocCatch(
-      {required Future<void> Function() actions,
-      bool? isLoading = true}) async {
+  Future<void> blocCatch({
+    required Future<void> Function() actions,
+    bool? isLoading = true,
+    Future<void> Function(Object error, StackTrace stackTrace)? onError,
+    Future<void> Function()? onFinally,
+  }) async {
     try {
       if (isLoading!) {
         showLoading();
       }
 
       await actions.call();
-
-      if (isLoading) {
-        hideLoading();
+    } catch (e, stackTrace) {
+      developer.log('Error occurred: $e',
+          name: 'Error', error: e, stackTrace: stackTrace);
+      if (onError != null) {
+        await onError(e, stackTrace);
       }
-    } catch (e) {
+    } finally {
       if (isLoading!) {
         hideLoading();
       }
-      developer.log('$e', name: 'Error');
+      if (onFinally != null) {
+        await onFinally();
+      }
     }
   }
 }
