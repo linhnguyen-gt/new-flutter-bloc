@@ -1,28 +1,52 @@
 # new_flutter_bloc
 
-- Flutter newer
+A new Flutter project using BLoC architecture.
 
-A new Flutter project.
+## Introduction
 
-Need create file .env first!!
+This project is a Flutter application utilizing the BLoC architecture for state management. It is designed to provide a clear and scalable project structure for Flutter applications.
 
-## Getting Started
+## Requirements
 
-- Rebuild: flutter pub run build_runner watch
-- Git hook: [lefthook](https://github.com/evilmartians/lefthook)
+- Flutter (latest version)
+- Dart SDK >=3.4.3 <4.0.0
+
+## Installation
+
+1. Clone this repository
+2. Run `flutter pub get` to install dependencies
+3. Create a `.env` file in the project root (see Environment Configuration below)
+
+## Environment Configuration
+
+This project uses a `.env` file to manage environment variables. Make sure to create this file before running the application.
+
+## Running the Application
+
+To run the application in debug mode:
+
+flutter run
+
+## Development
+
+### Rebuild
+
+To regenerate auto-generated files:
+
+flutter pub run build_runner watch
+
+### Git hooks
+
+This project uses [lefthook](https://github.com/evilmartians/lefthook) to manage git hooks. This helps maintain code quality and ensures consistency throughout the development process.
+
+### Architecture and Technology
+
 - State management: [flutter_bloc](https://pub.dev/packages/flutter_bloc)
 - Navigation: [auto_route](https://pub.dev/packages/auto_route)
-- DI: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
-- REST API: [dio](https://pub.dev/packages/dio)
-- Data class: [freezed](https://pub.dev/packages/freezed)
+- Dependency Injection: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
+- HTTP Client: [dio](https://pub.dev/packages/dio)
+- Data class generation: [freezed](https://pub.dev/packages/freezed)
 
-This project is a starting point for a Flutter application.
+## Coding Standards
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project follows the official Dart style guide. I use `dart format` to ensure consistent code formatting. Additionally, I use `dart analyze` to catch potential issues early.
