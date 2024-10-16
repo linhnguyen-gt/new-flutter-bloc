@@ -8,7 +8,7 @@ import '../extensions/extensions.dart';
 import 'http_config.dart';
 
 const String baseURL = Env.apiUrl;
-const _methodRes = [ApiMethod.get, ApiMethod.delete];
+final Set<ApiMethod> _methodRes = {ApiMethod.get, ApiMethod.delete};
 const Duration _timeout = Duration(seconds: 30);
 
 class HttpClient {
@@ -49,13 +49,10 @@ class HttpClient {
     try {
       final response = await _dio.request(
         endpoint,
-        queryParameters: _methodRes.contains(apiConfig.config.method)
-            ? apiConfig.config.params
-            : null,
-        data: !_methodRes.contains(apiConfig.config.method)
-            ? apiConfig.config.body
-            : null,
-        options: Options(method: apiConfig.config.method.lowercaseValue),
+        queryParameters:
+            _methodRes.contains(apiConfig.method) ? apiConfig.params : null,
+        data: !_methodRes.contains(apiConfig.method) ? apiConfig.body : null,
+        options: Options(method: apiConfig.method.lowercaseValue),
       );
 
       return BaseResponse(

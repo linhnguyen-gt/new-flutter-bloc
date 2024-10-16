@@ -1,60 +1,85 @@
-class HttpClientBaseConfig<M extends ApiMethod, P, B> {
-  final M method;
-  final Map<String, dynamic>? params;
-  final B? body;
-
-  HttpClientBaseConfig({required this.method, this.params, this.body});
+abstract class HttpClientConfig<M extends ApiMethod, P, B> {
+  M get method;
+  Map<String, dynamic>? get params;
+  B? get body;
 }
 
-class HttpClientConfig<M extends ApiMethod, P, B> {
-  final HttpClientBaseConfig<M, P, B> config;
+class GetHttpClientConfig<P, B> implements HttpClientConfig<ApiMethod, P, B> {
+  @override
+  final ApiMethod method = ApiMethod.get;
+  @override
+  final Map<String, dynamic>? params;
+  @override
+  B? get body => null;
 
-  HttpClientConfig(this.config);
+  GetHttpClientConfig({this.params});
+}
 
-  factory HttpClientConfig.get({Map<String, dynamic>? params}) {
-    return HttpClientConfig<M, P, dynamic>(
-      HttpClientBaseConfig<M, P, dynamic>(
-        method: ApiMethod.get as M,
-        params: params,
-      ),
-    ) as HttpClientConfig<M, P, B>;
-  }
+class PostHttpClientConfig<P, B> implements HttpClientConfig<ApiMethod, P, B> {
+  @override
+  final ApiMethod method = ApiMethod.post;
+  @override
+  Map<String, dynamic>? get params => null;
+  @override
+  final B? body;
 
-  factory HttpClientConfig.delete({Map<String, dynamic>? params}) {
-    return HttpClientConfig<M, P, dynamic>(
-      HttpClientBaseConfig<M, P, dynamic>(
-        method: ApiMethod.delete as M,
-        params: params,
-      ),
-    ) as HttpClientConfig<M, P, B>;
-  }
+  PostHttpClientConfig({this.body});
+}
 
-  factory HttpClientConfig.post({B? body}) {
-    return HttpClientConfig<M, dynamic, B>(
-      HttpClientBaseConfig<M, dynamic, B>(
-        method: ApiMethod.post as M,
-        body: body,
-      ),
-    ) as HttpClientConfig<M, P, B>;
-  }
+class PutHttpClientConfig<P, B> implements HttpClientConfig<ApiMethod, P, B> {
+  @override
+  final ApiMethod method = ApiMethod.put;
+  @override
+  Map<String, dynamic>? get params => null;
+  @override
+  final B? body;
 
-  factory HttpClientConfig.put({B? body}) {
-    return HttpClientConfig<M, dynamic, B>(
-      HttpClientBaseConfig<M, dynamic, B>(
-        method: ApiMethod.put as M,
-        body: body,
-      ),
-    ) as HttpClientConfig<M, P, B>;
-  }
+  PutHttpClientConfig({this.body});
+}
 
-  factory HttpClientConfig.patch({B? body}) {
-    return HttpClientConfig<M, dynamic, B>(
-      HttpClientBaseConfig<M, dynamic, B>(
-        method: ApiMethod.patch as M,
-        body: body,
-      ),
-    ) as HttpClientConfig<M, P, B>;
-  }
+class PatchHttpClientConfig<P, B> implements HttpClientConfig<ApiMethod, P, B> {
+  @override
+  final ApiMethod method = ApiMethod.patch;
+  @override
+  Map<String, dynamic>? get params => null;
+  @override
+  final B? body;
+
+  PatchHttpClientConfig({this.body});
+}
+
+class DeleteHttpClientConfig<P, B>
+    implements HttpClientConfig<ApiMethod, P, B> {
+  @override
+  final ApiMethod method = ApiMethod.delete;
+  @override
+  final Map<String, dynamic>? params;
+  @override
+  B? get body => null;
+
+  DeleteHttpClientConfig({this.params});
+}
+
+HttpClientConfig<ApiMethod, P, B> getHttpClientConfig<P, B>(
+    {Map<String, dynamic>? params}) {
+  return GetHttpClientConfig(params: params);
+}
+
+HttpClientConfig<ApiMethod, P, B> postHttpClientConfig<P, B>({B? body}) {
+  return PostHttpClientConfig(body: body);
+}
+
+HttpClientConfig<ApiMethod, P, B> putHttpClientConfig<P, B>({B? body}) {
+  return PutHttpClientConfig(body: body);
+}
+
+HttpClientConfig<ApiMethod, P, B> patchHttpClientConfig<P, B>({B? body}) {
+  return PatchHttpClientConfig(body: body);
+}
+
+HttpClientConfig<ApiMethod, P, B> deleteHttpClientConfig<P, B>(
+    {Map<String, dynamic>? params}) {
+  return DeleteHttpClientConfig(params: params);
 }
 
 enum ApiMethod { get, post, put, patch, delete }

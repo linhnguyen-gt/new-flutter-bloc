@@ -8,7 +8,7 @@ Future<BaseResponse<List<ResponseModel>>> responseApi(
     ResponseParamModel param) async {
   final response = await HttpClient.getInstance().request(
     'data',
-    HttpClientConfig.get(params: param.toJson()),
+    getHttpClientConfig(params: param.toJson()),
   );
 
   if (!response.ok) {
