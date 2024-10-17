@@ -1,9 +1,8 @@
-import 'dart:developer' as developer;
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../navigation/app_navigator.dart';
 import '../../bloc/common/common_bloc.dart';
+import '../../navigation/app_navigator.dart';
+import '../error_handler.dart';
 import 'base_bloc_event.dart';
 import 'base_bloc_state.dart';
 
@@ -15,6 +14,7 @@ abstract class BaseBloc<E extends BaseBlocEvent, S extends BaseBlocState>
 abstract class BaseBlocDelegate<E extends BaseBlocEvent,
     S extends BaseBlocState> extends Bloc<E, S> {
   BaseBlocDelegate(super.initialState);
+  final ErrorHandler errorHandler = ErrorHandler();
 
   late final AppNavigator navigator;
   late final CommonBloc _commonBloc;
@@ -33,13 +33,13 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
     }
   }
 
-  void showLoading() {
-    commonBloc.add(const SetLoading(isLoading: true));
-  }
-
   void reset(S initialState) {
     // ignore: invalid_use_of_visible_for_testing_member
     emit(initialState);
+  }
+
+  void showLoading() {
+    commonBloc.add(const SetLoading(isLoading: true));
   }
 
   void hideLoading() {
@@ -56,11 +56,9 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
       if (isLoading!) {
         showLoading();
       }
-
       await actions.call();
     } catch (e, stackTrace) {
-      developer.log('Error occurred: $e',
-          name: 'Error', error: e, stackTrace: stackTrace);
+      await errorHandler.handleError(e, stackTrace);
       if (onError != null) {
         await onError(e, stackTrace);
       }
