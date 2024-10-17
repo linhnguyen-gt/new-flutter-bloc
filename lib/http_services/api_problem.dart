@@ -12,52 +12,54 @@ class ApiException implements Exception {
   String toString() => 'ApiException: $message (Status code: $statusCode)';
 }
 
-Future<BaseResponse<T>> apiProblem<T>(BaseResponse<dynamic> response) {
-  switch (response.statusCode) {
-    case StatusCode.BAD_REQUEST:
-      return Future.error(
-          ApiException('Bad request', statusCode: StatusCode.BAD_REQUEST));
-    case StatusCode.UNAUTHORIZED:
-      return Future.error(ApiException('Unauthorized access',
-          statusCode: StatusCode.UNAUTHORIZED));
-    case StatusCode.FORBIDDEN:
-      return Future.error(
-          ApiException('Forbidden access', statusCode: StatusCode.FORBIDDEN));
-    case StatusCode.NOT_FOUND:
-      return Future.error(
-          ApiException('Resource not found', statusCode: StatusCode.NOT_FOUND));
-    case StatusCode.INTERNAL_SERVER_ERROR:
-      return Future.error(ApiException('Internal server error',
-          statusCode: StatusCode.INTERNAL_SERVER_ERROR));
-    case StatusCode.UNPROCESSABLE_ENTITY:
-      return Future.error(ApiException('Unprocessable entity',
-          statusCode: StatusCode.UNPROCESSABLE_ENTITY));
-    case StatusCode.SERVICE_UNAVAILABLE:
-      return Future.error(ApiException('Service unavailable',
-          statusCode: StatusCode.SERVICE_UNAVAILABLE));
-    case StatusCode.GATEWAY_TIMEOUT:
-      return Future.error(ApiException('Gateway timeout',
-          statusCode: StatusCode.GATEWAY_TIMEOUT));
-    case StatusCode.TOO_MANY_REQUESTS:
-      return Future.error(ApiException('Too many requests',
-          statusCode: StatusCode.TOO_MANY_REQUESTS));
-    case StatusCode.CONFLICT:
-      return Future.error(
-          ApiException('Conflict', statusCode: StatusCode.CONFLICT));
-    case StatusCode.PRECONDITION_FAILED:
-      return Future.error(ApiException('Precondition failed',
-          statusCode: StatusCode.PRECONDITION_FAILED));
-    default:
-      if (response.statusCode! >= 400 && response.statusCode! < 500) {
-        return Future.error(
-            ApiException('Client error', statusCode: response.statusCode!));
-      } else if (response.statusCode! >= 500) {
-        return Future.error(
-            ApiException('Server error', statusCode: response.statusCode!));
-      }
-      return Future.error(
-          ApiException('Unknown error', statusCode: response.statusCode!));
+abstract class IErrorHandler {
+  ApiException handleError(int statusCode);
+}
+
+class DefaultErrorHandler implements IErrorHandler {
+  final Map<int, String> _errorMessages = {
+    StatusCode.BAD_REQUEST: 'Bad request',
+    StatusCode.UNAUTHORIZED: 'Unauthorized access',
+    StatusCode.FORBIDDEN: 'Forbidden access',
+    StatusCode.NOT_FOUND: 'Resource not found',
+    StatusCode.INTERNAL_SERVER_ERROR: 'Internal server error',
+    StatusCode.UNPROCESSABLE_ENTITY: 'Unprocessable entity',
+    StatusCode.SERVICE_UNAVAILABLE: 'Service unavailable',
+    StatusCode.GATEWAY_TIMEOUT: 'Gateway timeout',
+    StatusCode.TOO_MANY_REQUESTS: 'Too many requests',
+    StatusCode.CONFLICT: 'Conflict',
+    StatusCode.PRECONDITION_FAILED: 'Precondition failed',
+  };
+
+  @override
+  ApiException handleError(int statusCode) {
+    if (_errorMessages.containsKey(statusCode)) {
+      return ApiException(_errorMessages[statusCode]!, statusCode: statusCode);
+    } else if (statusCode >= 400 && statusCode < 500) {
+      return ApiException('Client error', statusCode: statusCode);
+    } else if (statusCode >= 500) {
+      return ApiException('Server error', statusCode: statusCode);
+    }
+    return ApiException('Unknown error', statusCode: statusCode);
   }
 }
 
-class Data {}
+class ApiProblemHandler {
+  final IErrorHandler _errorHandler;
+
+  ApiProblemHandler(this._errorHandler);
+
+  Future<BaseResponse<T>> handleApiProblem<T>(BaseResponse<dynamic> response) {
+    if (response.statusCode == null) {
+      return Future.error(ApiException('Invalid status code', statusCode: -1));
+    }
+    return Future.error(_errorHandler.handleError(response.statusCode!));
+  }
+}
+
+final errorHandler = DefaultErrorHandler();
+final apiProblemHandler = ApiProblemHandler(errorHandler);
+
+Future<BaseResponse<T>> apiProblem<T>(BaseResponse<dynamic> response) {
+  return apiProblemHandler.handleApiProblem(response);
+}
