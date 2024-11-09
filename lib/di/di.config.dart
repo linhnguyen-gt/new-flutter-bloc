@@ -12,6 +12,7 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:new_flutter_bloc/bloc/common/common_bloc.dart' as _i925;
 import 'package:new_flutter_bloc/bloc/count/count_bloc.dart' as _i86;
+import 'package:new_flutter_bloc/bloc/login/login_bloc.dart' as _i515;
 import 'package:new_flutter_bloc/bloc/response/response_bloc.dart' as _i859;
 import 'package:new_flutter_bloc/navigation/app_navigator.dart' as _i1024;
 import 'package:new_flutter_bloc/navigation/app_router.dart' as _i443;
@@ -27,9 +28,10 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i859.ResponseBloc>(() => _i859.ResponseBloc());
-    gh.factory<_i86.CountBloc>(() => _i86.CountBloc());
     gh.factory<_i925.CommonBloc>(() => _i925.CommonBloc());
+    gh.factory<_i86.CountBloc>(() => _i86.CountBloc());
+    gh.factory<_i515.LoginBloc>(() => _i515.LoginBloc());
+    gh.factory<_i859.ResponseBloc>(() => _i859.ResponseBloc());
     gh.lazySingleton<_i443.AppRouter>(() => _i443.AppRouter());
     gh.lazySingleton<_i1024.AppNavigator>(
         () => _i1024.AppNavigator(gh<_i443.AppRouter>()));
