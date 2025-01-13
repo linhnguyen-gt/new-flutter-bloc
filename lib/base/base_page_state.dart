@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/common/common_bloc.dart';
 import '../common/loading/loading_indicator.dart';
 import '../di/di.dart';
 import '../navigation/app_navigator.dart';
+import '../presentation/bloc/common/common_bloc.dart';
 import 'bloc/base_bloc.dart';
 
 abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc>

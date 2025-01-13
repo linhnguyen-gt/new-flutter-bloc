@@ -122,7 +122,7 @@ class _InputState<T> extends State<Input<T>>
             if (widget.isImportance!)
               const Text(
                 '*',
-                style: const TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.red),
               )
           ],
         ),

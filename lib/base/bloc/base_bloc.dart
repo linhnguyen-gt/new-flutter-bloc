@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/common/common_bloc.dart';
 import '../../navigation/app_navigator.dart';
+import '../../presentation/bloc/common/common_bloc.dart';
 import '../error_handler.dart';
 import 'base_bloc_event.dart';
 import 'base_bloc_state.dart';
