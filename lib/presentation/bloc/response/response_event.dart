@@ -1,6 +1,6 @@
 part of 'response_bloc.dart';
 
-abstract class ResponseEvent extends BaseBlocEvent {
+abstract class ResponseEvent extends MainBlocEvent {
   const ResponseEvent();
 }
 

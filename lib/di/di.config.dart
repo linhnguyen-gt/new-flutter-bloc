@@ -26,7 +26,6 @@ import 'package:new_flutter_bloc/domain/use_cases/auth/login.dart' as _i860;
 import 'package:new_flutter_bloc/domain/use_cases/auth/register.dart' as _i490;
 import 'package:new_flutter_bloc/domain/use_cases/response/get_response.dart'
     as _i680;
-import 'package:new_flutter_bloc/navigation/app_navigator.dart' as _i1024;
 import 'package:new_flutter_bloc/navigation/app_router.dart' as _i443;
 import 'package:new_flutter_bloc/presentation/bloc/auth/auth_bloc.dart'
     as _i889;
@@ -48,18 +47,16 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i919.CountBloc>(() => _i919.CountBloc());
-    gh.factory<_i432.CommonBloc>(() => _i432.CommonBloc());
-    gh.factory<_i487.AuthRemoteDataSource>(() => _i487.AuthRemoteDataSource());
     gh.factory<_i496.ResponseRemoteDataSource>(
         () => _i496.ResponseRemoteDataSource());
+    gh.factory<_i487.AuthRemoteDataSource>(() => _i487.AuthRemoteDataSource());
+    gh.factory<_i919.CountBloc>(() => _i919.CountBloc());
+    gh.factory<_i432.CommonBloc>(() => _i432.CommonBloc());
     gh.lazySingleton<_i443.AppRouter>(() => _i443.AppRouter());
     gh.factory<_i736.ResponseRepository>(
         () => _i322.RepositoryImpl(gh<_i496.ResponseRemoteDataSource>()));
     gh.factory<_i807.AuthRepository>(
         () => _i1007.AuthRepositoryImpl(gh<_i487.AuthRemoteDataSource>()));
-    gh.lazySingleton<_i1024.AppNavigator>(
-        () => _i1024.AppNavigator(gh<_i443.AppRouter>()));
     gh.factory<_i680.GetResponse>(
         () => _i680.GetResponse(gh<_i736.ResponseRepository>()));
     gh.factory<_i860.Login>(() => _i860.Login(gh<_i807.AuthRepository>()));

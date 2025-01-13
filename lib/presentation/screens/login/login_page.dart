@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
+import 'package:bloc_small/bloc_small.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-import '../../../base/base_page_state.dart';
 import '../../../common/base/v_stack.dart';
 import '../../../common/input/input.dart';
 import '../../bloc/auth/auth_bloc.dart';
@@ -16,7 +16,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends BasePageState<LoginPage, AuthBloc> {
+class _LoginPageState extends BaseBlocPageState<LoginPage, AuthBloc> {
   final _formKey = GlobalKey<FormState>();
 
   @override

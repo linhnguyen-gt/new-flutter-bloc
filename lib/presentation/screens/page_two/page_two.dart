@@ -1,8 +1,8 @@
 import 'package:auto_route/annotations.dart';
+import 'package:bloc_small/bloc_small.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../base/base_page_state.dart';
 import '../../../data/models/count/count_model.dart';
 import '../../bloc/count/count_bloc.dart';
 
@@ -16,7 +16,7 @@ class PageTwo extends StatefulWidget {
   State<PageTwo> createState() => _PageTwoState();
 }
 
-class _PageTwoState extends BasePageState<PageTwo, CountBloc> {
+class _PageTwoState extends BaseBlocPageState<PageTwo, CountBloc> {
   @override
   Widget buildPage(BuildContext context) {
     return Scaffold(

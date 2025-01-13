@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   dio: ^5.7.0
-  flutter_bloc: ^9.0.0
   equatable: ^2.0.7
   freezed_annotation: ^2.4.4
   get_it: ^8.0.3
@@ -44,12 +43,12 @@ dependencies:
   infinite_scroll_pagination: ^4.1.0
   http_status_code: ^0.0.2
   envied: ^1.0.0
-  auto_route: ^9.3.0+1
   json_annotation: ^4.9.0
   dev: ^1.0.0
   flutter_vector_icons: ^2.0.0
   vibration: ^2.0.1
   form_builder_validators: ^11.1.1
+  bloc_small: ^2.1.0
 
 dev_dependencies:
   flutter_test:

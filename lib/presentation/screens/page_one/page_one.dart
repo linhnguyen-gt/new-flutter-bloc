@@ -1,8 +1,8 @@
 import 'package:auto_route/annotations.dart';
+import 'package:bloc_small/bloc_small.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../base/base_page_state.dart';
 import '../../bloc/response/response_bloc.dart';
 
 @RoutePage()
@@ -13,7 +13,7 @@ class PageOne extends StatefulWidget {
   State<PageOne> createState() => _PageOneState();
 }
 
-class _PageOneState extends BasePageState<PageOne, ResponseBloc> {
+class _PageOneState extends BaseBlocPageState<PageOne, ResponseBloc> {
   @override
   void initState() {
     // TODO(LinhNguyen): implement initState

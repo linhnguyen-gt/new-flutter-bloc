@@ -1,11 +1,9 @@
+import 'package:bloc_small/bloc_small.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../base/bloc/base_bloc.dart';
-import '../../../base/bloc/base_bloc_event.dart';
-import '../../../base/bloc/base_bloc_state.dart';
 import '../../../data/models/count/count_model.dart';
 import '../../../data/models/response/response_model.dart';
 import '../../../domain/entities/response/response_entity.dart';
@@ -17,7 +15,7 @@ part 'response_event.dart';
 part 'response_state.dart';
 
 @injectable
-class ResponseBloc extends BaseBloc<ResponseEvent, ResponseState> {
+class ResponseBloc extends MainBloc<ResponseEvent, ResponseState> {
   final GetResponse getResponse;
 
   ResponseBloc(this.getResponse) : super(const ResponseState()) {
@@ -40,6 +38,6 @@ class ResponseBloc extends BaseBloc<ResponseEvent, ResponseState> {
 
   void _onClickScreen(ClickScreen event, Emitter<ResponseState> emit) {
     navigator
-        .push(RouteTwo(countPageOne: CountModel(count: state.data.length)));
+        ?.push(RouteTwo(countPageOne: CountModel(count: state.data.length)));
   }
 }

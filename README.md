@@ -41,7 +41,8 @@ This project uses [lefthook](https://github.com/evilmartians/lefthook) to manage
 
 ### Architecture and Technology
 
-- State management: [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- State management:
+  - [bloc_small](https://pub.dev/packages/bloc_small) - Simplified BLoC implementation
 - Navigation: [auto_route](https://pub.dev/packages/auto_route)
 - Dependency Injection: [get_it](https://pub.dev/packages/get_it), [injectable](https://pub.dev/packages/injectable)
 - HTTP Client: [dio](https://pub.dev/packages/dio)
