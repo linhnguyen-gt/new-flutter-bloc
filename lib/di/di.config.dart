@@ -47,11 +47,11 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    gh.factory<_i487.AuthRemoteDataSource>(() => _i487.AuthRemoteDataSource());
     gh.factory<_i496.ResponseRemoteDataSource>(
         () => _i496.ResponseRemoteDataSource());
-    gh.factory<_i487.AuthRemoteDataSource>(() => _i487.AuthRemoteDataSource());
-    gh.factory<_i919.CountBloc>(() => _i919.CountBloc());
     gh.factory<_i432.CommonBloc>(() => _i432.CommonBloc());
+    gh.factory<_i919.CountBloc>(() => _i919.CountBloc());
     gh.lazySingleton<_i443.AppRouter>(() => _i443.AppRouter());
     gh.factory<_i736.ResponseRepository>(
         () => _i322.RepositoryImpl(gh<_i496.ResponseRemoteDataSource>()));
